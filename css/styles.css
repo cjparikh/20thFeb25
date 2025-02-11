@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --primary: #ab7442;
+  --light: #f5f5f5;
+  --dark: #353535;
+  --green: green;
+  --black: #130f40;
+  --light-color: #666;
+  --box-shadow: 0 0.1rem 1rem rgba(0, 0, 0.1);
+  --border: 2rem solid rgba(0, 0, 0.1);
+  --outline: 0.1rem solid rgba(0, 0, 0.1);
+}
+/* ADDED */
+body,
+html {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box !important;
+}
+
+/* .fw-medium {
+  font-weight: 500 !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+} */
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+/*** Button ***/
+.btn {
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+  color: #ffffff;
+}
+
+.btn-square {
+  width: 38px;
+  height: 38px;
+}
+
+.btn-sm-square {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-lg-square {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+}
+
+/*** Navbar ***/
+.navbar .dropdown-toggle::after {
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  margin-right: 30px;
+  padding: 25px 0;
+  /* color: #ffffff; */
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+@media (max-width: 991.98px) {
+  .navbar-light .navbar-nav .nav-link {
+    margin-right: 0;
+    padding: 10px 0;
+  }
+
+  .navbar-light .navbar-nav {
+    border-top: 1px solid #eeeeee;
+  }
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+  height: 75px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.navbar-light.sticky-top {
+  top: -100px;
+  transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    border: none;
+    margin-top: 0;
+    top: 150%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+    top: 100%;
+    visibility: visible;
+    transition: 0.5s;
+    opacity: 1;
+  }
+}
+/* NEW ADD */
+/* Navbar Logo Styling */
+.navbar-logo {
+  height: 75px; /* Default height */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust logo size for smaller screens */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 45px; /* Reduce size for mobile */
+  }
+}
+
+/* Ensure navbar height is consistent */
+.navbar-light .navbar-brand {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  /* width: 35%; */
+  width: auto;
+}
+.icons div {
+  height: 2.9rem;
+  width: 2.9rem;
+  line-height: 2.9rem;
+  border-radius: 0.75rem;
+  background: #eee;
+  color: var(--black);
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+
+.icons div:hover {
+  background: green;
+  color: white;
+  cursor: pointer;
+}
+.navbar a {
+  font-size: 1.1rem !important;
+  margin: 0 1rem !important;
+  color: var(--black) !important;
+}
+
+.navbar a:hover {
+  color: darkgreen !important;
+  font-weight: 550 !important;
+}
+
+.navbar {
+  width: auto !important;
+}
+
+#menu-btn {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    border-top: 1px solid #ddd;
+  }
+
+  .navbar-nav.show-menu {
+    display: flex;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  #menu-btn {
+    display: inline;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 790px) {
+  .icons div {
+    height: 2.2rem;
+    width: 2.2rem;
+    line-height: 2.2rem;
+    font-size: 1.1rem;
+    margin-right: 0.85rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .icons div {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/*** Header ***/
+@media (max-width: 768px) {
+  .header-carousel .owl-carousel-item {
+    position: relative;
+    min-height: 500px;
+  }
+
+  .header-carousel .owl-carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-carousel .owl-carousel-item h5,
+  .header-carousel .owl-carousel-item p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  .header-carousel .owl-carousel-item h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+
+.header-carousel .owl-nav {
+  position: absolute;
+  width: 200px;
+  height: 45px;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.header-carousel .owl-dots {
+  position: absolute;
+  height: 45px;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-carousel .owl-dot {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  background: transparent;
+  border: 1px solid #ffffff;
+  transition: 0.5s;
+}
+
+.owl-carousel-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header-carousel .owl-dot::after {
+  position: absolute;
+  content: "";
+  /* width: 5px;
+  height: 5px; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* top: 4px;
+  left: 4px; */
+  /* background: transparent; */
+  background: rgba(53, 53, 53, 0.5); /* Adjust opacity */
+  z-index: 1;
+  border: 1px solid #ffffff;
+}
+
+.header-carousel .owl-dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.page-header {
+  background: linear-gradient(rgba(53, 53, 53, 0.7), rgba(53, 53, 53, 0.7)),
+    url(../img/carousel-1.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--light);
+}
+
+.qualityseed {
+  font-size: 2.05rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: #ffcc00 !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8) !important;
+  margin-bottom: 1rem !important;
+  font-family: "Poppins", sans-serif !important;
+  margin-top: -0rem;
+}
+
+.trusted {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 2rem !important;
+}
+
+.empty {
+  margin: 0 0 0 auto !important;
+}
+/* Default styles (for large screens) */
+.qualityseed {
+  font-size: 2.5rem !important; /* Large font for desktops */
+  font-weight: 800 !important;
+}
+
+.trusted {
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .qualityseed {
+    font-size: 2.25rem !important; /* Slightly smaller */
+  }
+  .trusted {
+    font-size: 1rem !important;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .qualityseed {
+    font-size: 2rem !important; /* Even smaller */
+  }
+  .trusted {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .qualityseed {
+    font-size: 1.5rem !important; /* Smallest size for mobile */
+  }
+  .trusted {
+    font-size: 1rem !important;
+  }
+}

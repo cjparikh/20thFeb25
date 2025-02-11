@@ -1,0 +1,12 @@
+Castor(Arandi)
+Cumin(Jeera)
+Fennel(Saunf)
+GramSeeds(Chana)
+GreenGram(Moong)
+Isabgol
+Millet(Bajra)
+Mustard (Sarson)
+Sesame(Til)
+Sorghum(Jowar )
+Wheat(Gehun)
+BlackGram(UradDal)
