@@ -42,32 +42,16 @@
   </head>
 
   <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
       <a
         href="index.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <img
-          id="Logo"
-          src="img/1finallogonobg.png"
-          alt="Company Logo"
-          class="navbar-logo"
-        />
+        <picture id="Logo" class="navbar-logo" alt="Company Logo">
+          <source srcset="img/logo.webp" type="image/webp" />
+          <img class="navbar-logo" src="img/logo.png" />
+        </picture>
       </a>
 
       <div class="navbar-nav ms-auto p-4 p-lg-0">
@@ -106,7 +90,13 @@
     <div class="container-fluid p-0 pb-5">
       <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1FarmerCOWNoCR.jpg" alt="" />
+          <img
+            class="img-fluid"
+            src="img/hero1.jpg"
+            alt="Image of a man plauging with cow"
+            loading="eager"
+            fetchpriority="high"
+          />
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -124,7 +114,7 @@
                     Empowering Farmers Since 1968
                   </p>
                   <a
-                    href=""
+                    href="shop.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                     >Explore Our Products</a
                   >
@@ -134,7 +124,13 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1seedsinhand.jpg" alt="" />
+          <img
+            class="img-fluid"
+            src="img/hero2.jpg"
+            alt="Image of seeds in hand"
+            loading="eager"
+            fetchpriority="high"
+          />
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -151,7 +147,7 @@
                     Trusted since 1968 – Pioneering Agricultural Excellence
                   </p>
                   <a
-                    href=""
+                    href="shop.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                     >Explore Our Products</a
                   >
@@ -161,7 +157,13 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1HarvestNOCR2.jpg" alt="" />
+          <img
+            class="img-fluid"
+            src="img/hero3.jpg"
+            alt="Image of farmer harvesting"
+            loading="eager"
+            fetchpriority="high"
+          />
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -178,7 +180,7 @@
                     Helping Farmers Cultivate Success Since 1968
                   </p>
                   <a
-                    href=""
+                    href="shop.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                     >Explore Our Products</a
                   >
@@ -188,7 +190,12 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1lastimage.jpg" alt="" />
+          <img
+            class="img-fluid"
+            src="img/hero4.jpg"
+            loading="eager"
+            fetchpriority="high"
+          />
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -206,7 +213,7 @@
                     Reliable, High-Quality Seeds for Every Farmer
                   </p>
                   <a
-                    href=""
+                    href="shop.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                     >Explore our products</a
                   >
@@ -219,89 +226,6 @@
     </div>
     <!-- Carousel End -->
 
-    <!-- About Us Start -->
-    <!-- <div class="container-xxl py-5">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div
-              class="position-relative overflow-hidden h-100"
-              style="min-height: 400px"
-            >
-              <img
-                class="position-absolute w-100 h-100"
-                src="img/about-us.jpg"
-                alt="About Us"
-                style="object-fit: cover"
-              />
-            </div>
-          </div>
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="h-100">
-              <h1 class="display-6 mb-4">
-                A Legacy of Agricultural Excellence Since 1968
-              </h1>
-              <p class="mb-4">
-                Parikh Seeds has been at the forefront of agricultural
-                innovation for over five decades. Our journey began with a
-                simple mission: to provide farmers with the highest quality
-                seeds for better yields and sustainable farming.
-              </p>
-              <div class="row g-4 mb-4">
-                <div class="col-sm-6">
-                  <div class="d-flex align-items-center">
-                    <img
-                      class="flex-shrink-0 me-3"
-                      src="img/icon/icon-04-primary.png"
-                      alt="Icon"
-                    />
-                    <h6 class="mb-0">Quality Assurance</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="d-flex align-items-center">
-                    <img
-                      class="flex-shrink-0 me-3"
-                      src="img/icon/icon-03-primary.png"
-                      alt="Icon"
-                    />
-                    <h6 class="mb-0">Expert Research Team</h6>
-                  </div>
-                </div>
-              </div>
-              <p class="mb-4">
-                Our commitment to research and development has helped us develop
-                seeds that are disease-resistant, high-yielding, and adapted to
-                various climatic conditions.
-              </p>
-              <div class="row g-4">
-                <div class="col-sm-6">
-                  <div class="d-flex align-items-center">
-                    <img
-                      class="flex-shrink-0 me-3"
-                      src="img/icon/icon-07-primary.png"
-                      alt="Icon"
-                    />
-                    <h6 class="mb-0">50+ Years Experience</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="d-flex align-items-center">
-                    <img
-                      class="flex-shrink-0 me-3"
-                      src="img/icon/icon-06-primary.png"
-                      alt="Icon"
-                    />
-                    <h6 class="mb-0">Pan India Presence</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- About Us Start -->
     <!-- About Us Start -->
 
     <div class="section-title text-center" id="anchor-about">
@@ -318,9 +242,11 @@
             >
               <img
                 class="position-absolute w-100 h-100"
-                src="img/about-us.jpeg"
+                src="img/about-us.jpg"
                 alt="About Us"
                 style="object-fit: cover; filter: brightness(90%)"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -340,13 +266,23 @@
             <div class="row g-4 mb-4">
               <div class="col-sm-6">
                 <div class="icon-box">
-                  <img src="img/icon/quality2.png" alt="Quality Assurance" />
+                  <img
+                    src="img/icon/quality2.png"
+                    alt="Quality Assurance"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <h6 class="mb-0">Superior Quality Seeds</h6>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="icon-box">
-                  <img src="img/icon/lab2.png" alt="Research Team" />
+                  <img
+                    src="img/icon/lab2.png"
+                    alt="Research Team"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <h6 class="mb-0">Advanced Research & Development</h6>
                 </div>
               </div>
@@ -364,13 +300,23 @@
             <div class="row g-4">
               <div class="col-sm-6">
                 <div class="icon-box">
-                  <img src="img/icon/50+.png" alt="Experience" />
+                  <img
+                    src="img/icon/50+.png"
+                    alt="Experience"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <h6 class="mb-0">50+ Years of Trust</h6>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="icon-box">
-                  <img src="img/icon/india.png" alt="Presence" />
+                  <img
+                    src="img/icon/india.png"
+                    alt="Presence"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <h6 class="mb-0">Serving Farmers Nationwide</h6>
                 </div>
               </div>
@@ -403,6 +349,8 @@
                   class="img-fluid"
                   src="images/Castor(Arandi)/castor.jpg"
                   alt="Castor Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -422,8 +370,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Cumin(Jeera)/cumincard.jpg"
+                  src="images/Cumin(Jeera)/cumin.jpg"
                   alt="Cumin Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -443,8 +393,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Fennel(Saunf)/fennelcard.jpg"
+                  src="images/Fennel(Saunf)/fennel.jpg"
                   alt="Fennel Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -464,8 +416,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/GramSeeds(Chana)/DesiChana.jpeg"
+                  src="images/GramSeeds(Chana)/gramseeds.jpg"
                   alt="Gram Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -485,8 +439,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/GreenGram(Moong)/moong.jpg"
+                  src="images/GreenGram(Moong)/greengram.jpg"
                   alt="Green Gram"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -506,8 +462,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Isabgol/isabgolfree.jpeg"
+                  src="images/Isabgol/isabgol.jpg"
                   alt="Isabgol"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -527,8 +485,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Millet(Bajra)/milletcard.jpg"
+                  src="images/Millet(Bajra)/millet.jpg"
                   alt="Millet Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -548,8 +508,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Mustard (Sarson)/mustardcard.jpg"
+                  src="images/Mustard (Sarson)/mustard.jpg"
                   alt="Mustard Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -569,8 +531,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Sesame(Til)/sesamecard.jpg"
+                  src="images/Sesame(Til)/sesame.jpg"
                   alt="Sesame Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -590,8 +554,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Sorghum(Jowar )/sorghumcard.jpg"
+                  src="images/Sorghum(Jowar )/sorghum.jpg"
                   alt="Sorghum Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -611,8 +577,10 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Wheat(Gehun)/whearcard.jpg"
+                  src="images/Wheat(Gehun)/wheat.jpg"
                   alt="Wheat Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -634,6 +602,8 @@
                   class="img-fluid"
                   src="images/BlackGram(UradDal)/blackgram.jpg"
                   alt="Black gram"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
@@ -651,26 +621,6 @@
     </div>
     <!-- Categories End -->
 
-    <!-- Why Us Section -->
-    <!-- <section class="section bg-light whyus">
-      <h2>Why Choose Us?</h2>
-      <p>Trusted for over five decades in seed production and marketing</p>
-      <div class="cards">
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>Quality Assurance</h3>
-        </div>
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>Wide Distribution Network</h3>
-        </div>
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>Customer Satisfaction</h3>
-        </div>
-      </div>
-    </section> -->
-    <!-- Why Choose Us Section -->
     <!-- Why Choose Us Section -->
     <section
       class="container-xxl py-5 bg-light wow fadeIn"
@@ -788,18 +738,51 @@
     </div>
     <!-- Footer End -->
     <!-- Copyright Start -->
+    <!-- <div class="container-fluid copyright py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
+            &copy; <span id="year"></span> Parikh Seeds, All Rights Reserved.
+          </div>
+        </div>
+      </div>
+      <div>
+        <a
+          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm#fromView=search&page=1&position=3&uuid=0d402cff-6d10-4663-8567-50b4214c7e04&query=black+gram+black+dih"
+          >Image by freepik</a
+        >
+        <a
+          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm#from_element=detail_alsolike"
+          >Image by azerbaijan_stockers on Freepik</a
+        >
+       
+        <a
+          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm#fromView=search&page=2&position=15&uuid=0a386b96-c2c3-43cc-903d-d30d53eb1794&query=greengram"
+          >Image by fabrikasimf on Freepik</a
+        >
+      </div>
+    </div> -->
     <div class="container-fluid copyright py-4">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
             &copy; <span id="year"></span> Parikh Seeds, All Rights Reserved.
           </div>
-          <div>Images by <a href="www.freepik.com">Freepik</a></div>
-          <a
-            href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm#fromView=search&page=1&position=15&uuid=935e453c-7fe8-4dce-b0ca-ac06deaf5bec&query=green+gram"
-            >Image by fabrikasimf on Freepik</a
-          >
         </div>
+      </div>
+      <div class="attributions">
+        <a
+          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm#fromView=search&page=1&position=3&uuid=0d402cff-6d10-4663-8567-50b4214c7e04&query=black+gram+black+dih"
+          >Image by freepik</a
+        >
+        <a
+          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm#from_element=detail_alsolike"
+          >Image by azerbaijan_stockers on Freepik</a
+        >
+        <a
+          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm#fromView=search&page=2&position=15&uuid=0a386b96-c2c3-43cc-903d-d30d53eb1794&query=greengram"
+          >Image by fabrikasimf on Freepik</a
+        >
       </div>
     </div>
     <!-- Copyright End -->

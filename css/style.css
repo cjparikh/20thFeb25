@@ -1252,3 +1252,22 @@
 .wow {
   animation-duration: 1s;
 }
+
+/* ATTRIBUTIONS */
+/* Attribution Styling */
+.attributions {
+  font-size: 0.8rem; /* Smaller font size */
+  color: #999; /* Light gray color */
+  text-align: center; /* Center align */
+  margin-top: 1rem; /* Add some space above */
+}
+
+.attributions a {
+  color: #999; /* Light gray color for links */
+  text-decoration: none; /* Remove underline */
+  margin: 0 0.5rem; /* Add some space between links */
+}
+
+.attributions a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
