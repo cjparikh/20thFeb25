@@ -773,7 +773,7 @@
 }
 
 /*** Footer ***/
-.footer {
+/* .footer {
   background: linear-gradient(rgba(53, 53, 53, 0.7), rgba(53, 53, 53, 0.7)),
     url(../img/footer.jpg) center center no-repeat;
   background-size: cover;
@@ -833,6 +833,60 @@
 
 .footer .copyright a:hover {
   color: var(--primary);
+} */
+/* Footer Section */
+/* Footer Section */
+.footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../img/footer.jpg) center center no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+
+.footer h4 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Footer Links */
+.footer .btn.btn-link {
+  display: block;
+  margin-bottom: 8px;
+  padding: 5px 0;
+  text-align: left;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer .btn.btn-link::before {
+  content: "\f105"; /* FontAwesome arrow */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+  color: #28a745;
+  letter-spacing: 1px;
+}
+
+/* Copyright */
+.footer .border-top {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.footer p a {
+  color: #28a745;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
 }
 
 /* Search Form Styling */
@@ -1256,18 +1310,18 @@
 /* ATTRIBUTIONS */
 /* Attribution Styling */
 .attributions {
-  font-size: 0.8rem; /* Smaller font size */
-  color: #999; /* Light gray color */
-  text-align: center; /* Center align */
-  margin-top: 1rem; /* Add some space above */
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .attributions a {
-  color: #999; /* Light gray color for links */
-  text-decoration: none; /* Remove underline */
-  margin: 0 0.5rem; /* Add some space between links */
+  color: #999;
+  text-decoration: none;
+  margin: 0 0.5rem;
 }
 
 .attributions a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }

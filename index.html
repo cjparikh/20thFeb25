@@ -19,7 +19,6 @@
     />
 
     <!-- Icon Font Stylesheet -->
-
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
@@ -40,7 +39,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Add these to your head section -->
+    <!-- Preload-->
     <link
       rel="preload"
       href="fonts/your-main-font.woff2"
@@ -59,16 +58,18 @@
         href="index.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <picture id="Logo" class="navbar-logo" alt="Company Logo">
-          <source srcset="img/logo.webp" type="image/webp" />
-          <img class="navbar-logo" src="img/logo.png" />
-        </picture>
+        <img
+          id="Logo"
+          class="navbar-logo"
+          alt="Company Logo"
+          src="img/logo.png"
+        />
       </a>
 
       <div class="navbar-nav ms-auto p-4 p-lg-0">
         <a href="index.html" class="nav-item nav-link active">Home</a>
-        <a href="shop.html" class="nav-item nav-link">Shop</a>
-        <a href="service.html" class="nav-item nav-link">About</a>
+        <a href="#anchor-about" class="nav-item nav-link">About Us</a>
+        <a href="shop.html" class="nav-item nav-link">Our Products</a>
         <a href="#anchor-contact" class="nav-item nav-link">Contact</a>
       </div>
 
@@ -101,13 +102,23 @@
     <div class="container-fluid p-0 pb-5">
       <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
-          <img
+          <!-- <img
             class="img-fluid"
             src="img/hero1.webp"
             alt="Image of a man plauging with cow"
             loading="eager"
             fetchpriority="high"
-          />
+          /> -->
+          <picture>
+            <source srcset="img/hero1.webp" type="image/webp" />
+            <img
+              class="img-fluid"
+              src="img/hero1.jpg"
+              alt="Image of a man plauging with cow"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -135,13 +146,21 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img
-            class="img-fluid"
-            src="img/hero2.jpg"
-            alt="Image of seeds in hand"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <picture>
+            <source
+              srcset="img/hero2.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero2.jpg"
+              alt="Image of seeds in hand"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -168,13 +187,28 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img
+          <!-- <img
             class="img-fluid"
             src="img/hero3.jpg"
             alt="Image of farmer harvesting"
             loading="eager"
             fetchpriority="high"
-          />
+          /> -->
+          <picture>
+            <source
+              srcset="img/hero3.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero3.jpg"
+              alt="Image of farmer harvesting"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -201,12 +235,26 @@
           </div>
         </div>
         <div class="owl-carousel-item position-relative">
-          <img
+          <!-- <img
             class="img-fluid"
             src="img/hero4.jpg"
             loading="eager"
             fetchpriority="high"
-          />
+          /> -->
+          <picture>
+            <source
+              srcset="img/hero4.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero4.jpg"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -251,19 +299,40 @@
               class="position-relative overflow-hidden h-100"
               style="min-height: 400px"
             >
-              <img
+              <!-- <img
                 class="position-absolute w-100 h-100"
                 src="img/about-us.jpg"
                 alt="About Us"
                 style="object-fit: cover; filter: brightness(90%)"
                 loading="lazy"
                 decoding="async"
-              />
+              /> -->
+              <picture>
+                <source
+                  srcset="img/about-us.webp"
+                  type="image/webp"
+                  style="object-fit: cover; filter: brightness(90%)"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="position-absolute w-100 h-100"
+                  src="img/about-us.jpg"
+                  alt="About Us"
+                  style="object-fit: cover; filter: brightness(90%)"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
 
           <!-- Content Section -->
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div
+            class="col-lg-6 wow fadeInUp"
+            data-wow-delay="0.5s"
+            id="anchor-contact"
+          >
             <h1 class="display-6 mb-4">
               A Legacy of Agricultural Excellence Since 1968
             </h1>
@@ -278,7 +347,7 @@
               <div class="col-sm-6">
                 <div class="icon-box">
                   <img
-                    src="img/icon/quality2.png"
+                    src="img/icon/quality.png"
                     alt="Quality Assurance"
                     loading="lazy"
                     decoding="async"
@@ -627,9 +696,33 @@
               </div>
             </div>
           </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="images/Groundnut/groundnut.jpg"
+                  alt="Groundnut"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                class="p-4 text-center border border-5 border-light border-top-0"
+              >
+                <h4 class="mb-3">Groundnut (Magfadi)</h4>
+                <a class="fw-medium" href=""
+                  >View Products<i class="fa fa-arrow-right ms-2"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Groundnut -->
+
     <!-- Categories End -->
 
     <!-- Why Choose Us Section -->
@@ -717,7 +810,7 @@
     </div>
 
     <!-- Footer Start -->
-    <div
+    <!-- <div
       class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
@@ -731,7 +824,8 @@
               380009, INDIA
             </p>
             <p class="mb-2">
-              <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+              <i class="fa fa-phone-alt me-3"></i>+91 8140001169 , +91 079
+              26444679 , +91 079 48902092
             </p>
             <p class="mb-2">
               <i class="fa fa-envelope me-3"></i>parikhseeds@gmail.com
@@ -740,63 +834,95 @@
           <div class="col-lg-6 col-md-6">
             <h4 class="text-light mb-4">Quick Links</h4>
             <a class="btn btn-link" href="index.html">Home</a>
-            <a class="btn btn-link" href="shop.html">Shop</a>
             <a class="btn btn-link" href="#anchor-about">About Us</a>
+            <a class="btn btn-link" href="shop.html">Our Products</a>
             <a class="btn btn-link" href="#anchor-contact">Contact Us</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Footer End -->
-    <!-- Copyright Start -->
-    <!-- <div class="container-fluid copyright py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-            &copy; <span id="year"></span> Parikh Seeds, All Rights Reserved.
-          </div>
-        </div>
-      </div>
-      <div>
-        <a
-          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm#fromView=search&page=1&position=3&uuid=0d402cff-6d10-4663-8567-50b4214c7e04&query=black+gram+black+dih"
-          >Image by freepik</a
-        >
-        <a
-          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm#from_element=detail_alsolike"
-          >Image by azerbaijan_stockers on Freepik</a
-        >
-       
-        <a
-          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm#fromView=search&page=2&position=15&uuid=0a386b96-c2c3-43cc-903d-d30d53eb1794&query=greengram"
-          >Image by fabrikasimf on Freepik</a
-        >
-      </div>
     </div> -->
-    <div class="container-fluid copyright py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-            &copy; <span id="year"></span> Parikh Seeds, All Rights Reserved.
+    <!-- Footer End -->
+    <!-- Footer Start -->
+    <footer
+      class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
+      data-wow-delay="0.2s"
+    >
+      <div class="container py-5">
+        <div class="row g-5">
+          <!-- Address Section -->
+          <div class="col-lg-6 col-md-6">
+            <h4 class="text-light mb-4">Our Office</h4>
+            <p>
+              <i class="fa fa-map-marker-alt me-3"></i>303, Ushadeep Complex,
+              Near Navrangpura Railway Crossing, Navrangpura, Ahmedabad, Gujarat
+              380009, INDIA
+            </p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 8140001169</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 079 26444679</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 079 48902092</p>
+            <p><i class="fa fa-envelope me-3"></i>parikhseeds@gmail.com</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-6 col-md-6">
+            <h4 class="text-light mb-4">Quick Links</h4>
+            <a class="btn btn-link" href="index.html">Home</a>
+            <a class="btn btn-link" href="#anchor-about">About Us</a>
+            <a class="btn btn-link" href="shop.html">Our Products</a>
+            <a class="btn btn-link" href="#anchor-contact">Contact Us</a>
           </div>
         </div>
       </div>
+
+      <!-- Copyright Section -->
+      <div class="container-fluid text-center py-3 border-top">
+        <p class="mb-0">&copy; 2024 Parikh Seeds. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Attribution Section -->
+    <div class="container-fluid copyright py-4">
       <div class="attributions">
         <a
-          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm#fromView=search&page=1&position=3&uuid=0d402cff-6d10-4663-8567-50b4214c7e04&query=black+gram+black+dih"
-          >Image by freepik</a
+          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm"
         >
+          Designed by Freepik
+        </a>
+        |
         <a
-          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm#from_element=detail_alsolike"
-          >Image by azerbaijan_stockers on Freepik</a
+          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm"
         >
+          Image by Azerbaijan_stockers
+        </a>
+        |
         <a
-          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm#fromView=search&page=2&position=15&uuid=0a386b96-c2c3-43cc-903d-d30d53eb1794&query=greengram"
-          >Image by fabrikasimf on Freepik</a
+          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm"
         >
+          Image by Fabrikasimf
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-vector/shield-with-leaf-check-mark_128610753.htm"
+        >
+          Icon by Juicy_fish
+        </a>
+        |
+        <a href="https://www.freepik.com/icon/anniversary_6198554">
+          Icon by Freepik
+        </a>
+        |
+        <a href="https://www.freepik.com/icon/india-map_17694658">
+          Icon by Freepik
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-vector/blue-microscope-design_145116943.htm"
+        >
+          Image by Gstudioimagen
+        </a>
       </div>
     </div>
-    <!-- Copyright End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

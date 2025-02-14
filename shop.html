@@ -39,43 +39,40 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/shop.css" rel="stylesheet" />
+    <!-- Preload-->
+    <link
+      rel="preload"
+      href="fonts/your-main-font.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <!-- Spinner End -->
 
+  <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
       <a
-        href="indexguj.html"
+        href="index.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <img
           id="Logo"
-          src="img/1finallogonobg.png"
-          alt="Company Logo"
           class="navbar-logo"
+          alt="Company Logo"
+          src="img/logo.png"
         />
       </a>
 
       <div class="navbar-nav ms-auto p-4 p-lg-0">
         <a href="index.html" class="nav-item nav-link active">Home</a>
-        <a href="shop.html" class="nav-item nav-link">Shop</a>
-        <a href="service.html" class="nav-item nav-link">About</a>
+        <a href="#anchor-about" class="nav-item nav-link">About Us</a>
+        <a href="shop.html" class="nav-item nav-link">Our Products</a>
         <a href="#anchor-contact" class="nav-item nav-link">Contact</a>
       </div>
+
       <div class="empty"></div>
       <div class="icons">
         <div class="fa fa-search" id="search-btn"></div>
@@ -113,7 +110,7 @@
               <a class="text-white" href="#">Home</a>
             </li>
             <li class="breadcrumb-item text-white active" aria-current="page">
-              Shop
+              Our Products
             </li>
           </ol>
         </nav>
