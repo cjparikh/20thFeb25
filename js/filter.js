@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Check for URL parameters
+  const urlParams = new URLSearchParams(window.location.hash.substr(1));
+  const category = window.location.hash.substr(1); // Remove the # symbol
+
+  if (category) {
+    setTimeout(function () {
+      // Find and click the corresponding filter button
+      const filterBtn = document.querySelector(`#${category}`);
+      if (filterBtn) {
+        filterBtn.click();
+        // Scroll to the products section
+        const productsSection = document.querySelector(".category-filter");
+        if (productsSection) {
+          productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    }, 500); // Small delay to ensure DOM is ready
+  }
+
   // Initialize Isotope after images are loaded
   var grid = document.querySelector(".row.g-4");
   imagesLoaded(grid, function () {

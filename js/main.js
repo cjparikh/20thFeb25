@@ -65,11 +65,6 @@
   });
 
   $(document).ready(function () {
-    // Spinner
-    setTimeout(function () {
-      $("#spinner").removeClass("show");
-    }, 1);
-
     // Initiate WOW.js
     new WOW().init();
 
@@ -80,6 +75,74 @@
       } else {
         $(".sticky-top").removeClass("shadow-sm");
       }
+    });
+
+    // VIEW PRODUCTS
+    // Initialize Isotope with a more specific selector
+    var $grid = $(".products-grid").isotope({
+      itemSelector: ".col-lg-3",
+      layoutMode: "fitRows",
+    });
+
+    // Filter functions
+    $(".category-filter").on("click", "button", function () {
+      var filterValue = $(this).attr("data-filter");
+      $(".category-filter button").removeClass("active");
+      $(this).addClass("active");
+      $grid.isotope({ filter: filterValue });
+    });
+
+    // Handle inquiry form
+    function openInquiryForm(productName) {
+      // Close product modal if open
+      const productModal = bootstrap.Modal.getInstance(
+        document.getElementById("productModal")
+      );
+      if (productModal) {
+        productModal.hide();
+      }
+
+      // Set product name in inquiry form
+      $("#productName").val(productName);
+
+      // Pre-check the corresponding product checkbox
+      $(
+        `input[type="checkbox"][value="${
+          productName.toLowerCase().split(" ")[0]
+        }"]`
+      ).prop("checked", true);
+
+      // Show inquiry modal
+      const inquiryModal = new bootstrap.Modal(
+        document.getElementById("inquiryModal")
+      );
+      inquiryModal.show();
+    }
+
+    // Handle inquiry buttons
+    $(document).on("click", ".inquiry-btn", function (e) {
+      e.stopPropagation();
+      const productName = $(this).data("product-name");
+      openInquiryForm(productName);
+    });
+
+    // Form submission
+    $("#inquiryForm").on("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you for your inquiry. We will contact you soon!");
+
+      const inquiryModal = bootstrap.Modal.getInstance(
+        document.getElementById("inquiryModal")
+      );
+      inquiryModal.hide();
+      this.reset();
+
+      // Clean up modal backdrop
+      $(".modal-backdrop").remove();
+      $("body").removeClass("modal-open").css({
+        overflow: "",
+        paddingRight: "",
+      });
     });
 
     // DROPDOWN TOGGLE

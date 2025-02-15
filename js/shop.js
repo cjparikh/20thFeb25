@@ -1,136 +1,226 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Category filtering
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const products = document.querySelectorAll(".product-card");
+  // Initialize Isotope with a specific selector
+  const grid = document.querySelector(".products-grid");
+  const iso = new Isotope(grid, {
+    itemSelector: ".col-lg-3",
+    layoutMode: "fitRows",
+  });
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+  // Filter functions
+  const filterButtons = document.querySelectorAll(".category-filter .btn");
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const filterValue = this.getAttribute("data-filter");
+
       // Remove active class from all buttons
-      filterBtns.forEach((b) => b.classList.remove("active"));
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
       // Add active class to clicked button
-      btn.classList.add("active");
+      this.classList.add("active");
 
-      const category = btn.dataset.category;
-
-      // Filter products
-      products.forEach((product) => {
-        if (category === "all" || product.dataset.category === category) {
-          product.style.display = "block";
-        } else {
-          product.style.display = "none";
-        }
+      iso.arrange({
+        filter: filterValue,
       });
     });
   });
 
-  // Add to Cart functionality
-  const cartItems = [];
-  const addToCartBtns = document.querySelectorAll(".add-to-cart");
-
-  addToCartBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const product = btn.closest(".product-card");
-      const productInfo = {
-        id: product.dataset.id,
-        name: product.querySelector(".product-title").textContent,
-        price: product.querySelector(".product-price").dataset.price,
-        image: product.querySelector(".product-image img").src,
-      };
-
-      cartItems.push(productInfo);
-      updateCart();
-    });
-  });
-
-  function updateCart() {
-    const cartCount = document.querySelector(".cart-count");
-    if (cartCount) {
-      cartCount.textContent = cartItems.length;
+  // Product Modal and Inquiry Form Handling
+  function openInquiryForm(productName) {
+    // Close product modal if open
+    const productModal = bootstrap.Modal.getInstance(
+      document.getElementById("productModal")
+    );
+    if (productModal) {
+      productModal.hide();
     }
+
+    // Set product name in hidden field
+    document.getElementById("productName").value = productName;
+
+    // Check the corresponding checkbox
+    const productType = productName.toLowerCase().split(" ")[0];
+    const checkbox = document.querySelector(
+      `input[type="checkbox"][value="${productType}"]`
+    );
+    if (checkbox) {
+      checkbox.checked = true;
+    }
+
+    // Show inquiry modal
+    const inquiryModal = new bootstrap.Modal(
+      document.getElementById("inquiryModal")
+    );
+    inquiryModal.show();
   }
 
-  const quantityInput = document.getElementById("quantity");
-  const quantityType = document.getElementById("quantityType");
-  const totalPrice = document.getElementById("totalPrice");
+  // RESTORE SCROLLING X BUTTON
+  function restoreScrolling() {
+    // Remove modal-specific classes and styles
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
 
-  function updatePrice() {
-    const quantity = parseInt(quantityInput.value);
-    const type = quantityType.value;
-    const basePrice = type === "pieces" ? 100 : 50; // Price per piece/kg
-    const total = quantity * basePrice;
-    totalPrice.textContent = `₹${total.toFixed(2)}`;
+    // Remove any leftover backdrop
+    document.querySelectorAll(".modal-backdrop").forEach((backdrop) => {
+      backdrop.remove();
+    });
   }
 
-  quantityInput.addEventListener("change", updatePrice);
-  quantityType.addEventListener("change", updatePrice);
+  // Also update your existing modal handling
+  document.addEventListener("hidden.bs.modal", function (event) {
+    restoreScrolling();
+  });
 
-  // Make entire product card clickable
-  const productCards = document.querySelectorAll(".product-item");
-  productCards.forEach((card) => {
-    card.addEventListener("click", function () {
-      // Get product details from data attributes
-      const productId = this.dataset.productId;
-      const productDetails = {
-        name: this.dataset.name,
-        price: this.dataset.price,
-        weight: this.dataset.weight,
-        description: this.dataset.description,
-        stock: this.dataset.stock,
-        images: JSON.parse(this.dataset.images),
-      };
-      updateProductModal(productDetails);
-      // Show modal
-      const modal = new bootstrap.Modal(
-        document.getElementById("productModal")
-      );
-      modal.show();
+  // Handle all inquiry buttons (both in cards and modal)
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("inquiry-btn")) {
+      e.preventDefault();
+      e.stopPropagation();
+      const productName = e.target.getAttribute("data-product-name");
+      openInquiryForm(productName);
+    }
+  });
+
+  // Product click handler
+  document.querySelectorAll(".product-item").forEach((item) => {
+    item.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("inquiry-btn")) {
+        const productData = {
+          name: this.getAttribute("data-name"),
+          description: this.getAttribute("data-description"),
+          images: JSON.parse(this.getAttribute("data-images")),
+        };
+        updateProductModal(productData);
+      }
     });
   });
 
-  // Update modal content
+  // Update product modal content
   function updateProductModal(product) {
     const modal = document.getElementById("productModal");
 
-    // Update carousel images
-    const carousel = modal.querySelector(".carousel-inner");
-    carousel.innerHTML = product.images
-      .map(
-        (img, index) => `
-      <div class="carousel-item ${index === 0 ? "active" : ""}">
-        <img src="${img}" class="d-block w-100" alt="${product.name}">
-      </div>
-    `
-      )
-      .join("");
-
-    // Update product info
+    // Update content
     modal.querySelector(".product-title").textContent = product.name;
-    modal.querySelector(".product-description").innerHTML = `
-      <p>${product.description}</p>
-      <div class="product-meta">
-        <p><strong>Weight per Pack:</strong> ${product.weight}</p>
-        <p><strong>Stock Status:</strong> ${
-          product.stock > 0 ? "In Stock" : "Out of Stock"
-        }</p>
-        <p><strong>Price:</strong> ₹${product.price}/pack</p>
-      </div>
-    `;
+    modal.querySelector(".product-description").textContent =
+      product.description;
+    modal
+      .querySelector(".inquiry-btn")
+      .setAttribute("data-product-name", product.name);
 
-    // Update form
-    const quantityInput = modal.querySelector("#quantity");
-    const totalPrice = modal.querySelector("#totalPrice");
+    // Update carousel
+    const carouselInner = modal.querySelector(".carousel-inner");
+    carouselInner.innerHTML = "";
+    product.images.forEach((img, index) => {
+      carouselInner.innerHTML += `
+                <div class="carousel-item ${index === 0 ? "active" : ""}">
+                    <img src="${img}" class="d-block w-100" alt="${
+        product.name
+      }">
+                </div>
+            `;
+    });
 
-    quantityInput.max = product.stock;
-    quantityInput.value = 1;
+    // Show modal
+    const modalInstance = new bootstrap.Modal(modal);
+    modalInstance.show();
+  }
 
-    // Update price calculation
-    function calculateTotal() {
-      const quantity = parseInt(quantityInput.value);
-      const total = quantity * product.price;
-      totalPrice.textContent = `₹${total.toFixed(2)}`;
+  // Form validation and submission
+  const inquiryForm = document.getElementById("inquiryForm");
+
+  // Form validation handler
+  const form = document.getElementById("inquiryForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Add validation class to show validation styles
+    form.classList.add("was-validated");
+
+    // Check if form is valid
+    if (!form.checkValidity()) {
+      // Stop here if form is invalid
+      return;
     }
 
-    quantityInput.addEventListener("change", calculateTotal);
-    calculateTotal();
-  }
+    // Check if at least one checkbox is selected
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    if (!Array.from(checkboxes).some((cb) => cb.checked)) {
+      const checkboxGroup = document.querySelector(".checkbox-group");
+      checkboxGroup.classList.add("invalid");
+      return;
+    }
+
+    // If valid, proceed with form submission
+    const formData = new FormData(form);
+
+    // Reset form and validation states
+    form.reset();
+    form.classList.remove("was-validated");
+
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(
+      document.getElementById("inquiryModal")
+    );
+    if (modal) {
+      modal.hide();
+    }
+
+    // Clean up modal effects
+    document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  });
+
+  // Remove invalid state on input
+  form.querySelectorAll("input, textarea").forEach((input) => {
+    input.addEventListener("input", function () {
+      if (this.checkValidity()) {
+        this.classList.remove("is-invalid");
+      }
+    });
+  });
+
+  // Remove invalid class on input
+  document
+    .querySelectorAll("#inquiryForm input, #inquiryForm textarea")
+    .forEach((input) => {
+      input.addEventListener("input", function () {
+        this.classList.remove("invalid");
+      });
+    });
+
+  // Add client-side validation for phone number
+  const phoneInput = document.getElementById("phone");
+  phoneInput.addEventListener("input", function () {
+    const phoneRegex = /^[0-9+\-\s()]{10,15}$/;
+    if (!phoneRegex.test(this.value)) {
+      this.setCustomValidity("Please enter a valid phone number");
+    } else {
+      this.setCustomValidity("");
+    }
+  });
+
+  // Add client-side validation for email
+  const emailInput = document.getElementById("email");
+  emailInput.addEventListener("input", function () {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.value)) {
+      this.setCustomValidity("Please enter a valid email address");
+    } else {
+      this.setCustomValidity("");
+    }
+  });
+
+  // Add input validation messages
+  const inputs = document.querySelectorAll("input[required]");
+  inputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      if (!this.value) {
+        this.setCustomValidity("This field is required");
+      } else {
+        this.setCustomValidity("");
+      }
+    });
+  });
 });
