@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Form validation handler
   const form = document.getElementById("inquiryForm");
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Add validation class to show validation styles
@@ -150,26 +150,62 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // If valid, proceed with form submission
+    // Get form data
     const formData = new FormData(form);
+    const data = {
+      productName: formData.get("productName"),
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      companyName: formData.get("companyName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      streetAddress: formData.get("streetAddress"),
+      streetAddress2: formData.get("streetAddress2"),
+      city: formData.get("city"),
+      state: formData.get("state"),
+      postalCode: formData.get("postalCode"),
+      products: Array.from(formData.getAll("products[]")),
+      comments: formData.get("comments"),
+    };
 
-    // Reset form and validation states
-    form.reset();
-    form.classList.remove("was-validated");
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby4nHI0UaZTOoRZYkU59zGaHxkFTpTl_N3N7kDb7nHUKDVk0BEV0gz7cDgpxwldX-c/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors", // Change this from 'cors' to 'no-cors'
+        }
+      );
 
-    // Close modal
-    const modal = bootstrap.Modal.getInstance(
-      document.getElementById("inquiryModal")
-    );
-    if (modal) {
-      modal.hide();
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      // Since we're using no-cors, we can't read the response
+      // So we'll assume success if we get here
+      alert("Thank you for your inquiry! We will contact you soon.");
+
+      // Reset form and close modal
+      form.reset();
+      form.classList.remove("was-validated");
+
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById("inquiryModal")
+      );
+      modal?.hide();
+
+      // Clean up modal
+      restoreScrolling();
+    } catch (error) {
+      console.error("Error:", error);
+      alert(
+        "Sorry, there was an error submitting your form. Please try again."
+      );
     }
-
-    // Clean up modal effects
-    document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
-    document.body.classList.remove("modal-open");
-    document.body.style.overflow = "";
-    document.body.style.paddingRight = "";
   });
 
   // Remove invalid state on input
