@@ -5,17 +5,17 @@
    1.  General Styles
    2.  Shop Header & Category Filter
    3.  Product Grid & Items
-   4.  Modal Dialog Styles
-   5.  Back to Top Button
-   6.  Inquiry Form & Buttons
-   7.  Language Selector
-   8.  Footer
-   9.  Media Queries
+   4.  Back to Top Button
+   5.  Inquiry Form & Buttons
+   6.  Language Selector
+   7.  Footer
+   8.  Media Queries
 */
 
 /* ==========================================================================
    1. General Styles
    ========================================================================== */
+
 :root {
   --box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
@@ -27,14 +27,32 @@ body {
   font-family: "Arial", sans-serif;
   background-color: #ffffff;
   color: #333;
+  overflow-x: hidden;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
-     2. Shop Header & Category Filter
-     ========================================================================== */
+       2. Shop Header & Category Filter
+       ========================================================================== */
 
 .page-header {
-  /* Styles for the shop header section */
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
     url("../img/shop-header.jpg"); /* Replace with your image URL */
   background-position: center;
@@ -76,17 +94,6 @@ body {
   animation: fadeIn 1s ease-in-out forwards; /* Apply animation */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Updated Breadcrumb Styles */
 .page-header .breadcrumb {
   background: rgba(255, 255, 255, 0.15); /* Slightly lighter background */
@@ -97,28 +104,71 @@ body {
   margin-top: 1rem; /* Added margin for spacing */
 }
 
+/* Category Filter Container */
+.category-filter-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* Category Filter Styles (existing styles - moved here) */
 .category-filter {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
   overflow-x: auto;
-  white-space: nowrap;
-  padding: 10px 0;
-  margin: 0 -5px;
+  padding: 1rem 0;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 15px;
+  scroll-behavior: smooth; /* Add smooth scrolling */
 }
 
 .category-filter::-webkit-scrollbar {
   display: none;
 }
 
+/* Scroll Buttons */
+.scroll-button {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  color: #555;
+  cursor: pointer;
+  font-size: 1.2rem;
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure they are above filter buttons */
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-button:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+}
+
+.scroll-left {
+  left: 0.5rem;
+}
+
+.scroll-right {
+  right: 0.5rem;
+}
+
+/* Category Filter Button Styles */
 .category-filter .btn {
   min-width: auto;
   transition: all 0.3s ease;
   margin: 0 5px;
-  padding: 10px 20px; /* Slightly larger padding */
+  padding: 8px 16px; /* Slightly larger padding */
   background: linear-gradient(
     to bottom,
     #f0fff0,
@@ -130,6 +180,9 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .category-filter .btn.active {
@@ -168,8 +221,8 @@ body {
 }
 
 /* ==========================================================================
-     3. Product Grid & Items
-     ========================================================================== */
+       3. Product Grid & Items
+       ========================================================================== */
 
 .shop-container {
   padding: 2rem 0;
@@ -177,127 +230,24 @@ body {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.row.g-4 {
-  transition: all 0.4s ease;
-  margin: 0 -8px;
-}
-
-.col-lg-3 {
-  transition: opacity 0.4s ease;
-  opacity: 1;
-  padding: 8px;
-}
-
-.col-lg-3.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.product-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.product-img-container {
-  position: relative;
-  overflow: hidden;
-  padding-top: 100%;
-}
-
-.product-img-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover .product-img-container img {
-  /* Target image in container on card hover*/
-  transform: scale(1.1);
-}
-
-.product-actions {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 10px;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.product-card:hover .product-actions {
-  opacity: 1;
-}
-
-.product-info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.product-title {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  font-size: 1.5rem;
-}
-
-.product-price {
-  color: var(--primary);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* Updated "Add to Cart" button styles */
-.add-to-cart {
-  width: 100%;
-  padding: 12px 24px;
-  background: linear-gradient(to bottom, #3cb371, #2e8b57);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  font-weight: 600;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.add-to-cart:hover {
-  background: linear-gradient(to bottom, #32cd32, #2e8b57);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3);
-}
-
-.add-to-cart:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0 15px;
 }
 
 .product-item {
-  cursor: pointer;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-item:hover {
   transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-item img {
@@ -315,166 +265,156 @@ body {
   font-size: 0.9rem;
 }
 
-/* ==========================================================================
-       4. Modal Dialog Styles
-       ========================================================================== */
-.modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
-}
-.modal-dialog {
-  z-index: 1060;
-}
-.modal-backdrop {
-  display: none !important;
-}
-
-.modal-backdrop.fade.show {
-  opacity: 0.5;
-}
-body.modal-open {
+.product-image {
+  position: relative;
   overflow: hidden;
-  padding-right: 0 !important;
+  aspect-ratio: 1;
 }
 
-.modal-backdrop.fade {
-  transition: opacity 0.15s linear;
-}
-
-.modal-dialog {
-  max-width: 800px;
-  margin: 1.5rem auto;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  z-index: 1060;
-}
-
-.modal-content {
-  border-radius: 12px;
-  overflow: hidden;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-body {
-  padding: 1.5rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-  max-height: calc(90vh - 120px); /* Account for header and padding */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-}
-
-.modal-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modal-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-/* Update Product Modal Image Styles */
-.product-slider {
-  background: #f8f9fa;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 500px;
-}
-
-.carousel {
-  height: 100%;
-}
-
-.carousel-inner {
-  height: 100%;
-}
-
-.carousel-item {
-  height: 100%;
-  background: #f8f9fa;
-}
-
-.carousel-item img {
+.product-image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 1.5rem;
-  max-height: none; /* Remove max-height restriction */
+  transition: transform 0.5s ease;
 }
 
-.price-label {
-  font-weight: 500;
-  margin-right: 10px;
+/* Hover Effects */
+.product-item:hover .product-image img {
+  transform: scale(1.1);
 }
 
-.price-amount {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary);
+/* Overlay Effect */
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.carousel-item img {
-  max-height: 500px;
-  object-fit: contain;
-}
-
-.product-description {
-  line-height: 1.6;
-  color: #666;
-  font-size: 0.95rem;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-/* Enhance carousel controls visibility */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 45px;
-  height: 45px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.9;
-}
-
-.carousel-control-prev {
-  left: 10px;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  padding: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
+.product-item:hover .product-overlay {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Product Info Animation */
+.text-center {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.product-item:hover .text-center {
+  background: #f8f9fa;
+}
+
+/* Inquiry Button Enhancement */
+.inquiry-btn {
+  transform: translateY(10px);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.product-item:hover .inquiry-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Product Category Label */
+.category-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(254, 254, 254, 0.8);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #333;
+  text-transform: capitalize;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect */
+.product-item:hover .category-label {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure proper positioning */
+.position-relative {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid Transition Effects */
+.row.g-4 {
+  transition: all 0.4s ease;
+  margin: 0 -8px;
+}
+
+.col-lg-3 {
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  padding: 8px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.col-lg-3.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hide filtered items properly */
+.col-lg-3:not([style*="display: none"]) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.col-lg-3[style*="display: none"] {
+  opacity: 0;
+  transform: scale(0.5);
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Smooth transitions */
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Transitions */
+.isotope,
+.isotope .isotope-item {
+  transition-duration: 0.4s;
+}
+
+.isotope {
+  transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  transition-property: transform, opacity;
 }
 
 /* ==========================================================================
-       5. Back to Top Button
-       ========================================================================== */
+         4. Back to Top Button
+         ========================================================================== */
+
 .back-to-top {
   position: fixed;
   right: 20px;
@@ -493,12 +433,12 @@ body.modal-open {
 }
 
 /* ==========================================================================
-       6. Inquiry Form & Buttons
-       ========================================================================== */
+         5. Inquiry Form & Buttons
+         ========================================================================== */
 
 /* General styling for "Inquire Now" buttons */
 .inquiry-btn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: linear-gradient(to bottom, #3cb371, #2e8b57); /* Green gradient */
   color: white;
   border: none;
@@ -509,6 +449,8 @@ body.modal-open {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  margin: 5px 0;
 }
 
 .inquiry-btn:hover {
@@ -522,50 +464,65 @@ body.modal-open {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Styles related to the inquiry form would go here */
+/* Mobile WhatsApp Button */
+.whatsapp-inquiry {
+  display: none; /* Hidden by default */
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.whatsapp-inquiry i {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+.whatsapp-inquiry:hover {
+  background: #128c7e;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Show WhatsApp button only on mobile/tablet */
+@media (max-width: 991px) {
+  .whatsapp-inquiry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 /* ==========================================================================
-       7. Language Selector
-========================================================================== */
+         6. Language Selector
+  ========================================================================== */
 .language-selector {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding: 10px;
+  line-height: 1rem;
 }
 
 /* ==========================================================================
-       8. Footer
-       ========================================================================== */
+         7. Footer
+         ========================================================================== */
 .footer {
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-.products-grid {
-  min-height: 200px;
-}
-
-/* Prevent Isotope from affecting non-product layouts */
-.isotope-item {
-  z-index: 2;
-}
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* ==========================================================================
-       9. Media Queries
-       ========================================================================== */
-
-@media (max-width: 576px) {
-  .product-item img {
-    height: 250px;
-  }
-}
+     8. Modal Dialog Styles
+     ========================================================================== */
 
 /* Scrollbar styling for description */
 .product-description::-webkit-scrollbar {
@@ -586,32 +543,13 @@ body.modal-open {
   background: #555;
 }
 
-/* Modal styling */
-
-@media (max-width: 991px) {
-  .modal-dialog {
-    max-width: 95%;
-    margin: 1rem auto;
-  }
-
-  .col-lg-3 {
-    width: 50%;
-  }
-
-  .product-slider {
-    height: 600px;
-  }
+/* Base modal styles */
+.modal-dialog {
+  max-width: 95%;
+  margin: 1rem auto;
 }
 
-@media (max-width: 575px) {
-  /*No change, keeping previous version*/
-}
-
-@media (max-width: 767px) {
-  /*No change, keeping previous version*/
-}
-
-/* Enhance modal size for larger screens */
+/* Larger screens modal sizing */
 @media (min-width: 992px) {
   .modal-dialog {
     max-width: 900px;
@@ -622,7 +560,7 @@ body.modal-open {
   }
 }
 
-/* Extra large screens */
+/* Extra Large screens modal sizing */
 @media (min-width: 1200px) {
   .modal-dialog {
     max-width: 1000px;
@@ -633,11 +571,9 @@ body.modal-open {
   }
 }
 
-/* Medium screens */
-
-/* Small screens */
-
-/* Extra small screens */
+/* ==========================================================================
+         9. Media Queries
+         ========================================================================== */
 
 /* Adjust header on smaller screens to account for image focus */
 @media (max-width: 767px) {
@@ -654,5 +590,11 @@ body.modal-open {
 
   .page-header .breadcrumb {
     margin-top: 0.5rem; /* Adjust breadcrumb spacing */
+  }
+}
+
+@media (max-width: 576px) {
+  .product-item img {
+    height: 250px;
   }
 }

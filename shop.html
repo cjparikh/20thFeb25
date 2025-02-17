@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Parikh Seeds - Shop</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
@@ -70,7 +73,7 @@
         <a href="index.html" class="nav-item nav-link active">Home</a>
         <a href="#anchor-about" class="nav-item nav-link">About Us</a>
         <a href="shop.html" class="nav-item nav-link">Our Products</a>
-        <a href="#anchor-contact" class="nav-item nav-link">Contact</a>
+        <a class="nav-item nav-link inquiry-trigger">Contact</a>
       </div>
 
       <div class="empty"></div>
@@ -96,6 +99,7 @@
         <input type="search" id="search-box" placeholder="Search here..." />
         <i class="fas fa-times" id="close-search"></i>
       </div>
+      <div id="productsearch" class="productsearch"></div>
     </div>
 
     <!-- Shop Header -->
@@ -118,58 +122,120 @@
     </div>
 
     <!-- Category Filter -->
-    <div class="container-xxl py-3">
+    <div class="container-xxl py-3" id="anchor-products">
       <div class="container">
-        <div class="category-filter text-center mb-5">
-          <button class="btn btn-primary active" data-filter="*" id="all">
-            All
+        <div class="category-filter-container">
+          <!-- ADD THIS CONTAINER -->
+          <button class="scroll-button scroll-left">
+            <i class="fas fa-chevron-left"></i>
           </button>
-          <button class="btn btn-primary" data-filter=".wheat" id="wheat">
-            Wheat
-          </button>
-          <button class="btn btn-primary" data-filter=".bajra" id="bajra">
-            Bajra
-          </button>
-          <button class="btn btn-primary" data-filter=".sesame" id="sesame">
-            Sesame
-          </button>
-          <button class="btn btn-primary" data-filter=".sorghum" id="sorghum">
-            Sorghum
-          </button>
-          <button class="btn btn-primary" data-filter=".moong" id="moong">
-            Moong
-          </button>
-          <button class="btn btn-primary" data-filter=".urad" id="urad">
-            Urad
-          </button>
-          <button class="btn btn-primary" data-filter=".castor" id="castor">
-            Castor
-          </button>
-          <button class="btn btn-primary" data-filter=".cumin" id="cumin">
-            Cumin
-          </button>
-          <button class="btn btn-primary" data-filter=".fennel" id="fennel">
-            Fennel
-          </button>
-          <button
-            class="btn btn-primary"
-            data-filter=".gramseeds"
-            id="gramseeds"
-          >
-            Gram Seeds
-          </button>
-          <button
-            class="btn btn-primary"
-            data-filter=".groundnut"
-            id="groundnut"
-          >
-            Groundnut
-          </button>
-          <button class="btn btn-primary" data-filter=".isabgol" id="isabgol">
-            Isabgol
-          </button>
-          <button class="btn btn-primary" data-filter=".mustard" id="mustard">
-            Mustard
+          <div class="category-filter text-center mb-5">
+            <a href="#anchor-products">
+              <button class="btn btn-primary active" data-filter="*" id="all">
+                All
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".wheat" id="wheat">
+                Wheat
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".bajra" id="bajra">
+                Bajra
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".sesame" id="sesame">
+                Sesame
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button
+                class="btn btn-primary"
+                data-filter=".sorghum"
+                id="sorghum"
+              >
+                Sorghum
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".moong" id="moong">
+                Moong
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".urad" id="urad">
+                Urad
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".castor" id="castor">
+                Castor
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".cumin" id="cumin">
+                Cumin
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button class="btn btn-primary" data-filter=".fennel" id="fennel">
+                Fennel
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button
+                class="btn btn-primary"
+                data-filter=".gramseeds"
+                id="gramseeds"
+              >
+                Gram Seeds
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button
+                class="btn btn-primary"
+                data-filter=".groundnut"
+                id="groundnut"
+              >
+                Groundnut
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button
+                class="btn btn-primary"
+                data-filter=".isabgol"
+                id="isabgol"
+              >
+                Isabgol
+              </button>
+            </a>
+
+            <a href="#anchor-products">
+              <button
+                class="btn btn-primary"
+                data-filter=".mustard"
+                id="mustard"
+              >
+                Mustard
+              </button>
+            </a>
+          </div>
+          <button class="scroll-button scroll-right">
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>
@@ -185,27 +251,33 @@
           <div class="col-lg-3 col-sm-6 wheat">
             <div
               class="product-item"
-              data-product-id="7"
               data-name="Wheat Research Lokmani"
               data-category="wheat"
-              data-description="Premium bread wheat variety with high protein content (12-13%). Excellent chapati making quality. Resistant to yellow and brown rust. Average yield: 45-50 quintals/hectare. Maturity: 120-125 days."
-              data-images='["images/Wheat(Gehun)/lokmaniTile1.jpg", "images/Wheat(Gehun)/lokmaniTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Wheat(Gehun)/lokmanipackage.png"
                   alt="Wheat Lokmani"
                 />
+                <span class="category-label">Wheat</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Wheat Research Lokmani</h5>
+                <h5 class="mb-3">Parikh Lokmani</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Wheat Research Lokmani"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Lokmani"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -214,27 +286,33 @@
           <div class="col-lg-3 col-sm-6 wheat">
             <div
               class="product-item"
-              data-product-id="8"
               data-name="Wheat Research Parikh Sharbati"
               data-category="wheat"
-              data-description="Premium quality durum wheat variety with amber colored grains. High protein content (13-14%). Excellent for pasta and semolina products. Average yield: 40-45 quintals/hectare. Maturity: 130-135 days."
-              data-images='["images/Wheat(Gehun)/sharbatiTile1.jpg", "images/Wheat(Gehun)/sharbatiTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Wheat(Gehun)/sharbatipackage.png"
                   alt="Wheat Parikh Sharbati"
                 />
+                <span class="category-label">Wheat</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Wheat Research Parikh Sharbati</h5>
+                <h5 class="mb-3">Parikh Sharbati</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Wheat Research Parikh Sharbati"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Sharbati"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -243,114 +321,138 @@
           <div class="col-lg-3 col-sm-6 wheat">
             <div
               class="product-item"
-              data-product-id="8"
               data-name="Wheat Research Parikh Sharbati++"
               data-category="wheat"
-              data-description="Premium quality durum wheat variety with amber colored grains. High protein content (13-14%). Excellent for pasta and semolina products. Average yield: 40-45 quintals/hectare. Maturity: 130-135 days."
-              data-images='["images/Wheat(Gehun)/sharbati++Tile1.jpg", "images/Wheat(Gehun)/sharbati++Tile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Wheat(Gehun)/sharbati++package.png"
                   alt="Wheat Parikh Sharbati++"
                 />
+                <span class="category-label">Wheat</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Wheat Research Parikh Sharbati++</h5>
+                <h5 class="mb-3">Parikh Sharbati++</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Wheat Research Parikh Sharbati++"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Sharbati++"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Wheat Parikh Nilamani -->
           <div class="col-lg-3 col-sm-6 wheat">
             <div
               class="product-item"
-              data-product-id="8"
               data-name="Wheat Research Parikh Nilamani"
               data-category="wheat"
-              data-description="Premium quality durum wheat variety with amber colored grains. High protein content (13-14%). Excellent for pasta and semolina products. Average yield: 40-45 quintals/hectare. Maturity: 130-135 days."
-              data-images='["images/Wheat(Gehun)/nilamaniTile1.jpg", "images/Wheat(Gehun)/nilamaniTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Wheat(Gehun)/nilamanipackage.png"
-                  alt="Wheat Parikh Sharbati"
+                  alt="Wheat Parikh Nilamani"
                 />
+                <span class="category-label">Wheat</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Wheat Research Parikh Nilamani</h5>
+                <h5 class="mb-3">Parikh Nilamani</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Wheat Research Parikh Nilamani"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Nilamani"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- WHEAT END -->
           <!-- BAJRA START -->
           <!-- Bajra Namoh -->
           <div class="col-lg-3 col-sm-6 bajra">
             <div
               class="product-item"
-              data-product-id="2"
               data-name="Bajra Namoh"
               data-category="bajra"
-              data-description="Premium pearl millet variety with high nutritional value. Drought tolerant. Ideal for arid regions. Average yield: 25-30 quintals/hectare. Maturity: 78-82 days."
-              data-images='["images/Millet(Bajra)/namohTile1.jpg","images/Millet(Bajra)/namohTile2.jpg","images/Millet(Bajra)/namohTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Millet(Bajra)/namohpackage.png"
                   alt="Bajra Namoh"
                 />
+                <span class="category-label">Millet</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Bajra Namoh</h5>
+                <h5 class="mb-3">Parikh Namoh</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Bajra Namoh"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Namoh"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
-          <!-- Bajra parikh169 -->
+          <!-- Bajra Parikh-169 -->
           <div class="col-lg-3 col-sm-6 bajra">
             <div
               class="product-item"
-              data-product-id="4"
-              data-name="Bajra parikh169"
+              data-name="Bajra Parikh-169"
               data-category="bajra"
-              data-description="Superior pearl millet hybrid with exceptional drought tolerance. High grain and fodder yield. Resistant to downy mildew. Average yield: 28-32 quintals/hectare. Maturity: 75-80 days."
-              data-images='["images/Millet(Bajra)/parikh169Tile1.jpg", "images/Millet(Bajra)/parikh169Tile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Millet(Bajra)/parikh169.jpg"
-                  alt="Bajra Super 44+"
+                  alt="Bajra Parikh-169"
                 />
+                <span class="category-label">Millet</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Bajra Parikh-169</h5>
+                <h5 class="mb-3">Parikh-169</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Bajra Parikh-169"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh-169"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -359,18 +461,16 @@
           <div class="col-lg-3 col-sm-6 bajra">
             <div
               class="product-item"
-              data-product-id="4"
               data-name="Bajra Super 44+"
               data-category="bajra"
-              data-description="Superior pearl millet hybrid with exceptional drought tolerance. High grain and fodder yield. Resistant to downy mildew. Average yield: 28-32 quintals/hectare. Maturity: 75-80 days."
-              data-images='["images/Millet(Bajra)/img1.jpg", "images/Millet(Bajra)/img2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Millet(Bajra)/superprashant44++package.png"
                   alt="Bajra Super 44+"
                 />
+                <span class="category-label">Millet</span>
               </div>
               <div class="text-center p-4">
                 <h5 class="mb-3">SuperPrashant 44++</h5>
@@ -380,174 +480,219 @@
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20SuperPrashant%2044++"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- Bajra Parikh 552 -->
           <div class="col-lg-3 col-sm-6 bajra">
             <div
               class="product-item"
-              data-product-id="4"
               data-name="Bajra Parikh 552"
               data-category="bajra"
-              data-description="Superior pearl millet hybrid with exceptional drought tolerance. High grain and fodder yield. Resistant to downy mildew. Average yield: 28-32 quintals/hectare. Maturity: 75-80 days."
-              data-images='["images/Millet(Bajra)/img1.jpg", "images/Millet(Bajra)/img2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Millet(Bajra)/bajra552package.png"
-                  alt="Bajra Super 44+"
+                  alt="Bajra Parikh 552"
                 />
+                <span class="category-label">Millet</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Bajra Parikh 552</h5>
+                <h5 class="mb-3">Parikh 552</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Bajra Parikh 552"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20552"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- BAJRA END -->
           <!-- MOONG START -->
           <!-- Moong Neel -->
+
           <div class="col-lg-3 col-sm-6 moong">
+            <!-- Moong Neel Product -->
             <div
               class="product-item"
-              data-product-id="1"
               data-name="Moong Neel"
               data-category="moong"
-              data-description="High-yielding green gram variety with excellent germination rate. Disease resistant and suitable for all soil types. Average yield: 12-15 quintals/hectare. Maturity: 65-70 days."
-              data-images='["images/GreenGram(Moong)/neelTile1.jpg", "images/GreenGram(Moong)/neelTile2.jpg", "images/GreenGram(Moong)/neelTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/GreenGram(Moong)/neelpackage.png"
-                  alt="Moong Neel++"
+                  alt="Moong Neel"
                 />
+                <span class="category-label">Green Gram</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Moong Neel</h5>
+                <h5 class="mb-3">Parikh Neel</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Moong Neel"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Neel"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
 
           <!-- Moong Neel++ -->
           <div class="col-lg-3 col-sm-6 moong">
+            <!-- Moong Neel++ Product -->
             <div
               class="product-item"
-              data-product-id="1"
               data-name="Moong Neel++"
               data-category="moong"
-              data-description="High-yielding green gram variety with excellent germination rate. Disease resistant and suitable for all soil types. Average yield: 12-15 quintals/hectare. Maturity: 65-70 days."
-              data-images='["images/GreenGram(Moong)/neel++Tile1.jpg", "images/GreenGram(Moong)/neel++Tile2.jpg", "images/GreenGram(Moong)/neel++Tile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/GreenGram(Moong)/neel++package.png"
                   alt="Moong Neel++"
                 />
+                <span class="category-label">Green Gram</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Moong Neel++</h5>
+                <h5 class="mb-3">Parikh Neel++</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Moong Neel++"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Neel++"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- MOONG END -->
           <!-- URAD START -->
 
           <!-- Urad Shreenath -->
           <div class="col-lg-3 col-sm-6 urad">
+            <!-- Urad Shreenath Product -->
             <div
               class="product-item"
-              data-product-id="3"
               data-name="Urad Shreenath"
               data-category="urad"
-              data-description="Premium black gram variety known for its high protein content and excellent cooking quality. Disease resistant and high yielding. Average yield: 10-12 quintals/hectare. Maturity: 75-80 days."
-              data-images='["images/BlackGram(UradDal)/shreenathtile1.jpg", "images/BlackGram(UradDal)/cropshreenathtile2.jpg", "images/BlackGram(UradDal)/shreenathtile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/BlackGram(UradDal)/shreenathpackage.png"
                   alt="Urad Shreenath"
                 />
+                <span class="category-label">Black Gram</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Urad Shreenath</h5>
+                <h5 class="mb-3">Parikh Shreenath</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Urad Shreenath"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Shreenath"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
 
           <!-- Urad Super Fine -->
           <div class="col-lg-3 col-sm-6 urad">
+            <!-- Urad Super Fine Product -->
             <div
               class="product-item"
-              data-product-id="3"
               data-name="Urad Super Fine"
               data-category="urad"
-              data-description="Premium black gram variety known for its high protein content and excellent cooking quality. Disease resistant and high yielding. Average yield: 10-12 quintals/hectare. Maturity: 75-80 days."
-              data-images='["images/BlackGram(UradDal)/superfineTile1.jpg", "images/BlackGram(UradDal)/superfineTile2.jpg", "images/BlackGram(UradDal)/superfineTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/BlackGram(UradDal)/superfinepackage.png"
-                  alt="Urad Shreenath"
+                  alt="Urad Super Fine"
                 />
+                <span class="category-label">Black Gram</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Urad Super Fine</h5>
+                <h5 class="mb-3">Parikh Super Fine</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Urad Super Fine"
                 >
                   Inquire Now
                 </button>
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Super%20Fine"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- URAD END -->
           <!-- Sesame Start -->
-          <!-- Parikh Neer-->
+          <!-- Parikh Neer -->
           <div class="col-lg-3 col-sm-6 sesame">
             <div
               class="product-item"
-              data-product-id="5"
               data-name="Parikh Neer"
               data-category="sesame"
-              data-description="High-yielding white sesame variety with excellent oil content (48-50%). Early maturing and drought tolerant. Suitable for both kharif and rabi seasons. Average yield: 8-10 quintals/hectare. Maturity: 85-90 days."
-              data-images='["images/Sesame(Til)/neerTile1.jpg", "images/Sesame(Til)/neerTile2.jpg","images/Sesame(Til)/neerTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Sesame(Til)/neerpackage.png"
                   alt="Parikh Neer"
                 />
+                <span class="category-label">Sesame</span>
               </div>
               <div class="text-center p-4">
                 <h5 class="mb-3">Parikh Neer</h5>
@@ -557,34 +702,51 @@
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link updated with the dynamic product name from the H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Neer"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- Sesame Parth++ -->
           <div class="col-lg-3 col-sm-6 sesame">
             <div
               class="product-item"
-              data-product-id="5"
               data-name="Sesame Parth++"
               data-category="sesame"
-              data-description="High-yielding white sesame variety with excellent oil content (48-50%). Early maturing and drought tolerant. Suitable for both kharif and rabi seasons. Average yield: 8-10 quintals/hectare. Maturity: 85-90 days."
-              data-images='["images/Sesame(Til)/parth++Tile1.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Sesame(Til)/parth++package.png"
                   alt="Sesame Parth++"
                 />
+                <span class="category-label">Sesame</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Sesame Parth++</h5>
+                <h5 class="mb-3">Parikh Parth++</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Sesame Parth++"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link updated with the dynamic product name from the H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Parth++"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -594,27 +756,34 @@
           <div class="col-lg-3 col-sm-6 sorghum">
             <div
               class="product-item"
-              data-product-id="6"
               data-name="Sorghum BumperGrass"
               data-category="sorghum"
-              data-description="Multi-cut fodder sorghum variety with excellent regeneration capacity. High protein content and palatability. Suitable for multiple harvests. Average yield: 400-450 quintals green fodder/hectare. Maturity: First cut 50-55 days."
-              data-images='["images/Sorghum(Jowar )/bumpergrassTile1.jpg", "images/Sorghum(Jowar )/bumpergrassTile2.jpg" ]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Sorghum(Jowar )/bumpergrasspackage.png"
-                  alt="Sorghum SSG-788"
+                  alt="Sorghum BumperGrass"
                 />
+                <span class="category-label">Sorghum</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Sorghum BumperGrass</h5>
+                <h5 class="mb-3">Parikh BumperGrass</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Sorghum BumperGrass"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link updated with the dynamic product name from the H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20BumperGrass"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -623,57 +792,72 @@
           <div class="col-lg-3 col-sm-6 sorghum">
             <div
               class="product-item"
-              data-product-id="6"
               data-name="Sorghum SSG-788"
               data-category="sorghum"
-              data-description="Multi-cut fodder sorghum variety with excellent regeneration capacity. High protein content and palatability. Suitable for multiple harvests. Average yield: 400-450 quintals green fodder/hectare. Maturity: First cut 50-55 days."
-              data-images='["images/Sorghum(Jowar )/ps_ssj-788Tile1.png"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Sorghum(Jowar )/ps_ssj-788package.jpg.png"
                   alt="Sorghum SSG-788"
                 />
+                <span class="category-label">Sorghum</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Sorghum SSG-788</h5>
+                <h5 class="mb-3">Parikh SSG-788</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Sorghum SSG-788"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link updated with the dynamic product name from the H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20SSG-788"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+          <!-- sorghum end -->
 
           <!-- Castor Start -->
           <!-- Castor Om Parikh -->
           <div class="col-lg-3 col-sm-6 castor">
             <div
               class="product-item"
-              data-product-id="9"
               data-name="Castor Om Parikh"
               data-category="castor"
-              data-description="Premium castor variety known for high oil yield and drought tolerance. Resistant to common pests and diseases. Suitable for both rainfed and irrigated conditions. Average yield: 20-25 quintals/hectare. Maturity: 135-140 days."
-              data-images='["images/Castor(Arandi)/omTile1.jpg","images/Castor(Arandi)/omTile2.jpg","images/Castor(Arandi)/omTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Castor(Arandi)/ompackage.jpg"
                   alt="Castor Om Parikh"
                 />
+                <span class="category-label">Castor</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Castor Om Parikh</h5>
+                <h5 class="mb-3">Parikh Om</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Castor Om Parikh"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Om"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -682,27 +866,34 @@
           <div class="col-lg-3 col-sm-6 castor">
             <div
               class="product-item"
-              data-product-id="10"
               data-name="Castor Yoddha"
               data-category="castor"
-              data-description="High-performance castor variety with a strong growth rate and excellent yield. Suitable for various soil types. Average yield: 18-22 quintals/hectare. Maturity: 140-145 days."
-              data-images='["images/Castor(Arandi)/yoddhaTile1.jpg" , "images/Castor(Arandi)/yoddhaTile2.jpg" , "images/Castor(Arandi)/yoddhaTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Castor(Arandi)/yoddhapackage.jpg"
                   alt="Castor Yoddha"
                 />
+                <span class="category-label">Castor</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Castor Yoddha</h5>
+                <h5 class="mb-3">Parikh Yoddha</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Castor Yoddha"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Yoddha"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -711,45 +902,50 @@
           <div class="col-lg-3 col-sm-6 castor">
             <div
               class="product-item"
-              data-product-id="11"
               data-name="Castor Super Prashant 09"
               data-category="castor"
-              data-description="A superior variety of castor known for high oil content and good disease resistance. Thrives in dry and semi-arid conditions. Average yield: 22-28 quintals/hectare. Maturity: 145-150 days."
-              data-images='["images/Castor(Arandi)/superprashant09Tile1.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Castor(Arandi)/superprashantpackage.jpg"
                   alt="Castor Super Prashant 09"
                 />
+                <span class="category-label">Castor</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Castor Super Prashant 09</h5>
+                <h5 class="mb-3">Parikh Super Prashant 09</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Castor Super Prashant 09"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Super%20Prashant%2009"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
           <!-- Castor END -->
+
           <!-- Cumin Start -->
           <!-- Cumin Heera -->
           <div class="col-lg-3 col-sm-6 cumin">
             <div
               class="product-item"
-              data-product-id="12"
               data-name="Cumin Heera"
               data-category="cumin"
-              data-description="High-quality cumin variety known for its strong flavor and aroma. Resistant to common diseases and pests. Suitable for both irrigated and rainfed conditions. Average yield: 8-10 quintals/hectare. Maturity: 120-130 days."
-              data-images='["images/Cumin(Jeera)/heeraTile1.jpg", "images/Cumin(Jeera)/heeraTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Cumin(Jeera)/heerapackage.png"
                   alt="Cumin Heera"
                 />
@@ -769,32 +965,38 @@
           <!-- Cumin end -->
 
           <!-- Fennel Start -->
-          <!-- Fennel Start -->
           <!-- Fennel Parikh-23 -->
           <div class="col-lg-3 col-sm-6 fennel">
             <div
               class="product-item"
-              data-product-id="13"
               data-name="Fennel Parikh-23"
               data-category="fennel"
-              data-description="High-yielding fennel variety with strong aroma and flavor. Resistant to common pests and diseases. Suitable for both irrigated and rainfed conditions. Average yield: 10-12 quintals/hectare. Maturity: 110-120 days."
-              data-images='["images/Fennel(Saunf)/parikh23Tile1.jpg", "images/Fennel(Saunf)/parikh23Tile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Fennel(Saunf)/parikh23package.jpg"
                   alt="Fennel Parikh-23"
                 />
+                <span class="category-label">Fennel</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Fennel Parikh-23</h5>
+                <h5 class="mb-3">Parikh-23</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Fennel Parikh-23"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh-23"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -803,48 +1005,54 @@
           <div class="col-lg-3 col-sm-6 fennel">
             <div
               class="product-item"
-              data-product-id="14"
               data-name="Fennel Hariyali"
               data-category="fennel"
-              data-description="Premium fennel variety known for its vibrant green color and high essential oil content. Suitable for various soil types. Average yield: 11-13 quintals/hectare. Maturity: 115-125 days."
-              data-images='["images/Fennel(Saunf)/hariyaliTile1.jpg", "images/Fennel(Saunf)/hariyaliTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Fennel(Saunf)/hariyalipackage.jpg"
                   alt="Fennel Hariyali"
                 />
+                <span class="category-label">Fennel</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Fennel Hariyali</h5>
+                <h5 class="mb-3">Parikh Hariyali</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Fennel Hariyali"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Hariyali"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
           <!-- Fennel END-->
+
           <!-- GramSeeds Start -->
           <!-- Parikh Gangour -->
           <div class="col-lg-3 col-sm-6 gramseeds">
             <div
               class="product-item"
-              data-product-id="15"
               data-name="Parikh Gangour"
               data-category="gramseeds"
-              data-description="High-yielding gram variety with excellent disease resistance. Suitable for various soil types. Average yield: 15-18 quintals/hectare. Maturity: 100-110 days."
-              data-images='["images/GramSeeds(Chana)/gangourTile1.jpg", "images/GramSeeds(Chana)/gangourTile2.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/GramSeeds(Chana)/gangourpackage.png"
                   alt="Parikh Gangour"
                 />
+                <span class="category-label">GramSeeds</span>
               </div>
               <div class="text-center p-4">
                 <h5 class="mb-3">Parikh Gangour</h5>
@@ -854,36 +1062,53 @@
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Gangour"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
           <!-- GramSeeds End -->
+
           <!-- GROUNDNUT START -->
           <!-- Groundnut Sona -->
           <div class="col-lg-3 col-sm-6 groundnut">
             <div
               class="product-item"
-              data-product-id="16"
               data-name="Groundnut Sona"
               data-category="groundnut"
-              data-description="High-yielding groundnut variety with excellent oil content. Suitable for various soil types. Average yield: 20-25 quintals/hectare. Maturity: 110-120 days."
-              data-images='["images/Groundnut/sonapackage.png"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Groundnut/sonapackage.png"
                   alt="Groundnut Sona"
                 />
+                <span class="category-label">Groundnut</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Groundnut Sona</h5>
+                <h5 class="mb-3">Parikh Sona</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Groundnut Sona"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Sona"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -892,87 +1117,110 @@
           <div class="col-lg-3 col-sm-6 groundnut">
             <div
               class="product-item"
-              data-product-id="17"
               data-name="Groundnut Super Parikh 44++"
               data-category="groundnut"
-              data-description="Superior groundnut variety with high oil content and disease resistance. Suitable for various soil types. Average yield: 22-28 quintals/hectare. Maturity: 115-125 days."
-              data-images='["images/Groundnut/superparikh44++package.png"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Groundnut/superparikh44++package.png"
                   alt="Groundnut Super Parikh 44++"
                 />
+                <span class="category-label">Groundnut</span>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Groundnut Super Parikh 44++</h5>
+                <h5 class="mb-3">Super Parikh 44++</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Groundnut Super Parikh 44++"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Super%20Parikh%2044++"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- GROUNDNUT END -->
+
           <!-- ISABGOL START -->
           <!-- Isabgol Parikh Gold -->
           <div class="col-lg-3 col-sm-6 isabgol">
             <div
               class="product-item"
-              data-product-id="18"
               data-name="Isabgol Parikh Gold"
               data-category="isabgol"
-              data-description="High-quality isabgol variety known for its high fiber content and purity. Suitable for various soil types. Average yield: 10-12 quintals/hectare. Maturity: 120-130 days."
-              data-images='["images/Isabgol/goldTile1.jpg", "images/Isabgol/goldTile2.jpg" , "images/Isabgol/goldTile3.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Isabgol/goldPackage.png"
                   alt="Isabgol Parikh Gold"
                 />
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Isabgol Parikh Gold</h5>
+                <h5 class="mb-3">Parikh Gold</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Isabgol Parikh Gold"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Gold"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
+
           <!-- ISABGOL END -->
+
           <!-- MUSTARD START -->
           <!-- Mustard Parik-45 -->
           <div class="col-lg-3 col-sm-6 mustard">
             <div
               class="product-item"
-              data-product-id="19"
               data-name="Mustard Parik-45"
               data-category="mustard"
-              data-description="High-yielding mustard variety with excellent oil content. Suitable for various soil types. Average yield: 15-18 quintals/hectare. Maturity: 110-120 days."
-              data-images='["images/Mustard (Sarson)/parikh45package.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Mustard (Sarson)/parikh45package.jpg"
                   alt="Mustard Parik-45"
                 />
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Mustard Parik-45</h5>
+                <h5 class="mb-3">Parikh-45</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Mustard Parik-45"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh-45"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -981,27 +1229,33 @@
           <div class="col-lg-3 col-sm-6 mustard">
             <div
               class="product-item"
-              data-product-id="20"
               data-name="Mustard Parikh Mahi"
               data-category="mustard"
-              data-description="Premium mustard variety with high oil content and disease resistance. Suitable for various soil types. Average yield: 16-20 quintals/hectare. Maturity: 115-125 days."
-              data-images='["images/Mustard (Sarson)/parikhmahipackage.jpg"]'
             >
               <div class="position-relative product-image">
                 <img
-                  class="img-fluid cursor-pointer"
+                  class="img-fluid"
                   src="images/Mustard (Sarson)/parikhmahipackage.jpg"
                   alt="Mustard Parikh Mahi"
                 />
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-3">Mustard Parikh Mahi</h5>
+                <h5 class="mb-3">Parikh Mahi</h5>
                 <button
                   class="btn btn-sm btn-primary inquiry-btn"
                   data-product-name="Mustard Parikh Mahi"
                 >
                   Inquire Now
                 </button>
+                <!-- WhatsApp link with dynamic product name from H5 -->
+                <a
+                  href="https://wa.me/918140001169?text=Hi%2C%20I%20am%20interested%20in%20Parikh%20Mahi"
+                  class="whatsapp-inquiry"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  Inquire on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -1019,85 +1273,12 @@
       </div>
     </div>
 
-    <!-- PRODUCT MODAL -->
-    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="row g-4">
-              <!-- Product Images -->
-              <div class="col-md-6">
-                <div class="product-slider">
-                  <div
-                    id="productCarousel"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                  >
-                    <div class="carousel-inner">
-                      <!-- Images will be dynamically inserted here -->
-                    </div>
-                    <button
-                      class="carousel-control-prev"
-                      type="button"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide="prev"
-                    >
-                      <span
-                        class="carousel-control-prev-icon"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <button
-                      class="carousel-control-next"
-                      type="button"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide="next"
-                    >
-                      <span
-                        class="carousel-control-next-icon"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- Product Info -->
-              <div class="col-md-6">
-                <h3 class="product-title"></h3>
-                <p class="product-description"></p>
-                <div class="text-center mt-4">
-                  <!-- <button class="btn btn-primary inquiry-btn">
-                    Inquire Now
-                  </button> -->
-                  <button
-                    class="btn btn-primary inquiry-btn"
-                    data-product-name=""
-                  >
-                    Inquire Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- INQUIRE NOW -->
-    <!-- Replace the existing inquiry modal with this -->
+    <!-- INQUIRE NOW / CONTACT US -->
     <div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5>Product Inquiry</h5>
+            <h5>Contact Us</h5>
             <button
               type="button"
               class="btn-close"
@@ -1157,16 +1338,7 @@
                     required
                   />
                 </div>
-                <!-- <div class="form-field">
-                  <label data-required>Phone Number</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Enter your phone number"
-                    required
-                  />
-                </div> -->
+
                 <div class="form-field">
                   <label data-required>Phone Number</label>
                   <input
@@ -1183,13 +1355,8 @@
 
               <!-- Address -->
               <div class="form-field">
-                <label for="streetAddress">Street Address*</label>
-                <input
-                  type="text"
-                  id="streetAddress"
-                  name="streetAddress"
-                  required
-                />
+                <label for="streetAddress">Street Address</label>
+                <input type="text" id="streetAddress" name="streetAddress" />
                 <input
                   type="text"
                   id="streetAddress2"
@@ -1200,150 +1367,31 @@
 
               <div class="form-row three-columns">
                 <div class="form-field">
-                  <label for="city">City*</label>
-                  <input type="text" id="city" name="city" required />
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" />
                 </div>
                 <div class="form-field">
                   <label for="state">State*</label>
-                  <input type="text" id="state" name="state" required />
+                  <input type="text" id="state" name="state" />
                 </div>
                 <div class="form-field">
-                  <label for="postalCode">Postal Code*</label>
-                  <input
-                    type="number"
-                    id="postalCode"
-                    name="postalCode"
-                    required
-                  />
+                  <label for="postalCode">Postal Code</label>
+                  <input type="number" id="postalCode" name="postalCode" />
                 </div>
               </div>
 
-              <!-- Products -->
+              <!-- Products Section in Form -->
               <div class="form-field">
-                <label>Products of Interest*</label>
-                <div class="checkbox-group">
-                  <!-- Add other product checkboxes -->
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="wheat"
-                      name="products[]"
-                      value="wheat"
-                    />
-                    <label for="wheat">Wheat(Gehun)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="sorghum"
-                      name="products[]"
-                      value="sorghum"
-                    />
-                    <label for="sorghum">Sorghum(Jowar)</label>
-                  </div>
+                <label>Products of Interest</label>
 
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="blackgram"
-                      name="products[]"
-                      value="blackgram"
-                    />
-                    <label for="blackgram">BlackGram(UradDal)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="castor"
-                      name="products[]"
-                      value="castor"
-                    />
-                    <label for="castor">Castor(Arandi)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="cumin"
-                      name="products[]"
-                      value="cumin"
-                    />
-                    <label for="cumin">Cumin(Jeera)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="fennel"
-                      name="products[]"
-                      value="fennel"
-                    />
-                    <label for="fennel">Fennel(Saunf)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="gramseeds"
-                      name="products[]"
-                      value="gramseeds"
-                    />
-                    <label for="gramseeds">GramSeeds(Chana)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="greengram"
-                      name="products[]"
-                      value="greengram"
-                    />
-                    <label for="greengram">GreenGram(Moong)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="groundnut"
-                      name="products[]"
-                      value="groundnut"
-                    />
-                    <label for="groundnut">Groundnut</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="isabgol"
-                      name="products[]"
-                      value="isabgol"
-                    />
-                    <label for="isabgol">Isabgol</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="millet"
-                      name="products[]"
-                      value="millet"
-                    />
-                    <label for="millet">Millet(Bajra)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="mustard"
-                      name="products[]"
-                      value="mustard"
-                    />
-                    <label for="mustard">Mustard(Sarson)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input
-                      type="checkbox"
-                      id="sesame"
-                      name="products[]"
-                      value="sesame"
-                    />
-                    <label for="sesame">Sesame(Til)</label>
-                  </div>
+                <!-- All Main Categories First -->
+                <div class="main-categories">
+                  <div class="checkbox-group"></div>
                 </div>
-              </div>
 
+                <!-- All Subcategories Next -->
+                <div class="all-subcategories"></div>
+              </div>
               <!-- Comments -->
               <div class="form-field">
                 <label for="comments">Additional Comments</label>
@@ -1377,6 +1425,12 @@
       </a>
     </div>
 
+    <div class="inquireatag">
+      <!-- Desktop Inquire Button -->
+      <a href="#" class="fixed-inquire-btn inquiry-trigger">
+        <i class="fas fa-envelope me-2"></i>Inquire Now
+      </a>
+    </div>
     <!-- Footer Start -->
     <footer class="container-fluid bg-dark text-light footer mt-5 pt-5">
       <div class="container py-5">
@@ -1401,7 +1455,7 @@
             <a class="btn btn-link" href="index.html">Home</a>
             <a class="btn btn-link" href="#anchor-about">About Us</a>
             <a class="btn btn-link" href="shop.html">Our Products</a>
-            <a class="btn btn-link" href="#anchor-contact">Contact Us</a>
+            <a class="btn btn-link inquiry-trigger">Contact Us</a>
           </div>
         </div>
       </div>
@@ -1429,5 +1483,7 @@
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>

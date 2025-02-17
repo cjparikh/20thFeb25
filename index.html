@@ -4,7 +4,7 @@
     <!-- Meta Tags -->
     <meta charset="utf-8" />
     <title>Parikh Seeds</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
@@ -50,6 +50,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/form.css">
   </head>
   <body>
     <body>
@@ -75,7 +76,7 @@
           <a href="index.html" class="nav-item nav-link active">Home</a>
           <a href="#anchor-about" class="nav-item nav-link">About Us</a>
           <a href="shop.html" class="nav-item nav-link">Our Products</a>
-          <a href="#anchor-contact" class="nav-item nav-link">Contact</a>
+          <a href="#" class="nav-item nav-link inquiry-trigger">Contact</a>
         </div>
   
         <!-- Navbar Search/Menu Icons -->
@@ -93,6 +94,7 @@
         <a href="index.html" class="lang-btn">English</a>
         <a href="indexguj.html" class="lang-btn">ગુજરાતી</a>
         <a href="indexhindi.html" class="lang-btn">हिंदी</a>
+       
       </div>
 
         <!-- ==========================================================================
@@ -104,6 +106,7 @@
           <input type="search" id="search-box" placeholder="Search here..." />
           <i class="fas fa-times" id="close-search"></i>
         </div>
+        <div id="productsearch" class="productsearch"></div>
       </div>
 
         <!-- ==========================================================================
@@ -328,7 +331,7 @@
           <div
             class="col-lg-6 wow fadeInUp"
             data-wow-delay="0.5s"
-            id="anchor-contact"
+            
           >
             <h1 class="display-6 mb-4">
               A Legacy of Agricultural Excellence Since 1968
@@ -828,19 +831,156 @@
        </div>
      </section>
 
+     <!-- INQUIRE NOW / CONTACT US -->
+     <div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Contact Us</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              onclick="restoreScrolling()"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="inquiryForm">
+              <input type="hidden" id="productName" name="productName" />
 
+              <!-- Name Fields -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label data-required>First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter your first name"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label data-required>Last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter your last name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Company -->
+              <div class="form-field">
+                <label>Company Name</label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  placeholder="Enter your company name (optional)"
+                />
+              </div>
+
+              <!-- Contact -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label data-required>Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                <div class="form-field">
+                  <label data-required>Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    pattern="^[0-9+\- ]{10,15}$"
+                    title=": Please enter a valid phone number "
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="form-field">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" id="streetAddress" name="streetAddress" />
+                <input
+                  type="text"
+                  id="streetAddress2"
+                  name="streetAddress2"
+                  placeholder="Apartment, suite, etc. (optional)"
+                />
+              </div>
+
+              <div class="form-row three-columns">
+                <div class="form-field">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" />
+                </div>
+                <div class="form-field">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" />
+                </div>
+                <div class="form-field">
+                  <label for="postalCode">Postal Code</label>
+                  <input type="number" id="postalCode" name="postalCode" />
+                </div>
+              </div>
+
+              <!-- Products -->
+              <div class="form-field">
+                <label>Products of Interest</label>
+                
+                <!-- All Main Categories First -->
+                <div class="main-categories">
+                  <div class="checkbox-group">
+                    
+                  </div>
+                </div>
+              
+                <!-- All Subcategories Next -->
+                <div class="all-subcategories">
+                  
+                </div>
+              </div>
+
+              <!-- Comments -->
+              <div class="form-field">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-submit">
+                <button type="submit">Submit Inquiry</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- ==========================================================================
        8. Fixed Buttons (Back to Top, WhatsApp)
        ========================================================================== -->
-    <div class="fixed-buttons">
-      <!-- Back to Top -->
-      <a href="#" class="btn btn-lg btn-primary btn-lg-square">
-        <i class="fas fa-arrow-up"></i>
-      </a>
-      
-      
-
-      <!-- WhatsApp Button -->
+  <!-- Fixed Buttons -->
+  <div class="fixed-buttons">
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    
+  <!-- WhatsApp Button -->
       <a
         href="https://wa.me/918140001169?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
         class="btn btn-lg btn-success btn-lg-square whatsapp-btn"
@@ -850,6 +990,13 @@
       </a>
     </div>
 
+
+    <div class="inquireatag">
+    <!-- Desktop Inquire Button -->
+    <a href="#" class="fixed-inquire-btn inquiry-trigger">
+      <i class="fas fa-envelope me-2"></i>Inquire Now
+    </a>
+    </div>
 
     <!-- ==========================================================================
        9. Footer
@@ -880,7 +1027,7 @@
             <a class="btn btn-link" href="index.html">Home</a>
             <a class="btn btn-link" href="#anchor-about">About Us</a>
             <a class="btn btn-link" href="shop.html">Our Products</a>
-            <a class="btn btn-link" href="#anchor-contact">Contact Us</a>
+            <a class="btn btn-link inquiry-trigger" href="#">Contact Us</a>
           </div>
         </div>
       </div>
@@ -891,6 +1038,8 @@
       </div>
     </footer>
     <!-- Footer End -->
+
+        
 
     <!-- Attribution Section -->
     <div class="container-fluid copyright py-4">
@@ -948,5 +1097,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>

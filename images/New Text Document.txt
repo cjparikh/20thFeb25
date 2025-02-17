@@ -1,6 +1,5 @@
 Sorghum(Jowar )
 Wheat(Gehun)
-New Text Document.txt
 BlackGram(UradDal)
 Castor(Arandi)
 Cumin(Jeera)

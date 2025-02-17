@@ -1,39 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Isotope with a specific selector
+  // ==========================================================================
+  // 1. Category Filtering with Isotope
+  // ==========================================================================
+
   const grid = document.querySelector(".products-grid");
   const iso = new Isotope(grid, {
     itemSelector: ".col-lg-3",
     layoutMode: "fitRows",
   });
 
-  // Filter functions
+  // Add animation delay for initial load
+  document.querySelectorAll(".col-lg-3").forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`;
+  });
+
+  // Filter button functionality
   const filterButtons = document.querySelectorAll(".category-filter .btn");
   filterButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const filterValue = this.getAttribute("data-filter");
-
-      // Remove active class from all buttons
       filterButtons.forEach((btn) => btn.classList.remove("active"));
-      // Add active class to clicked button
       this.classList.add("active");
-
-      iso.arrange({
-        filter: filterValue,
-      });
+      iso.arrange({ filter: filterValue });
     });
   });
 
-  // Product Modal and Inquiry Form Handling
-  function openInquiryForm(productName) {
-    // Close product modal if open
-    const productModal = bootstrap.Modal.getInstance(
-      document.getElementById("productModal")
-    );
-    if (productModal) {
-      productModal.hide();
-    }
+  // ==========================================================================
+  // 2. Category Filter Scroll Buttons
+  // ==========================================================================
 
-    // Set product name in hidden field
+  const filterContainer = document.querySelector(".category-filter");
+  const scrollLeftButton = document.querySelector(".scroll-left");
+  const scrollRightButton = document.querySelector(".scroll-right");
+
+  scrollLeftButton.addEventListener("click", function () {
+    filterContainer.scrollLeft -= 150; // Adjust scroll amount as needed
+  });
+
+  scrollRightButton.addEventListener("click", function () {
+    filterContainer.scrollLeft += 150; // Adjust scroll amount as needed
+  });
+
+  // ==========================================================================
+  // 3. Back to Top Button
+  // ==========================================================================
+
+  const backToTopButton = document.querySelector(".back-to-top");
+
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add("active");
+    } else {
+      backToTopButton.classList.remove("active");
+    }
+  });
+
+  // ==========================================================================
+  // 4. Inquiry Form Handling
+  // ==========================================================================
+
+  function openInquiryForm(productName) {
     document.getElementById("productName").value = productName;
 
     // Check the corresponding checkbox
@@ -52,25 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
     inquiryModal.show();
   }
 
-  // RESTORE SCROLLING X BUTTON
+  // Restore scrolling functionality
   function restoreScrolling() {
-    // Remove modal-specific classes and styles
     document.body.classList.remove("modal-open");
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
-
-    // Remove any leftover backdrop
     document.querySelectorAll(".modal-backdrop").forEach((backdrop) => {
       backdrop.remove();
     });
   }
 
-  // Also update your existing modal handling
-  document.addEventListener("hidden.bs.modal", function (event) {
-    restoreScrolling();
-  });
+  // Modal cleanup
+  document.addEventListener("hidden.bs.modal", restoreScrolling);
 
-  // Handle all inquiry buttons (both in cards and modal)
+  // Handle inquiry buttons
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("inquiry-btn")) {
       e.preventDefault();
@@ -80,77 +101,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Product click handler
-  document.querySelectorAll(".product-item").forEach((item) => {
-    item.addEventListener("click", function (e) {
-      if (!e.target.classList.contains("inquiry-btn")) {
-        const productData = {
-          name: this.getAttribute("data-name"),
-          description: this.getAttribute("data-description"),
-          images: JSON.parse(this.getAttribute("data-images")),
-        };
-        updateProductModal(productData);
-      }
-    });
-  });
+  // ==========================================================================
+  // 5. Form Handling
+  // ==========================================================================
 
-  // Update product modal content
-  function updateProductModal(product) {
-    const modal = document.getElementById("productModal");
-
-    // Update content
-    modal.querySelector(".product-title").textContent = product.name;
-    modal.querySelector(".product-description").textContent =
-      product.description;
-    modal
-      .querySelector(".inquiry-btn")
-      .setAttribute("data-product-name", product.name);
-
-    // Update carousel
-    const carouselInner = modal.querySelector(".carousel-inner");
-    carouselInner.innerHTML = "";
-    product.images.forEach((img, index) => {
-      carouselInner.innerHTML += `
-                <div class="carousel-item ${index === 0 ? "active" : ""}">
-                    <img src="${img}" class="d-block w-100" alt="${
-        product.name
-      }">
-                </div>
-            `;
-    });
-
-    // Show modal
-    const modalInstance = new bootstrap.Modal(modal);
-    modalInstance.show();
-  }
-
-  // Form validation and submission
-  const inquiryForm = document.getElementById("inquiryForm");
-
-  // Form validation handler
   const form = document.getElementById("inquiryForm");
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
-
-    // Add validation class to show validation styles
     form.classList.add("was-validated");
 
-    // Check if form is valid
-    if (!form.checkValidity()) {
-      // Stop here if form is invalid
-      return;
-    }
+    // Validation checks
+    if (!form.checkValidity()) return;
 
-    // Check if at least one checkbox is selected
     const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     if (!Array.from(checkboxes).some((cb) => cb.checked)) {
-      const checkboxGroup = document.querySelector(".checkbox-group");
-      checkboxGroup.classList.add("invalid");
+      document.querySelector(".checkbox-group").classList.add("invalid");
       return;
     }
 
-    // Get form data
+    // Prepare form data
     const formData = new FormData(form);
     const data = {
       productName: formData.get("productName"),
@@ -170,14 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby4nHI0UaZTOoRZYkU59zGaHxkFTpTl_N3N7kDb7nHUKDVk0BEV0gz7cDgpxwldX-c/exec",
+        "https://script.google.com/macros/s/AKfycbwO5LJZYL6vRsMkcodq0CKfJBXBJ2rvZ58X5khQDwj5ee7rFu5cYxvqcxqP7kkyewg/exec",
         {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
           },
-          mode: "no-cors", // Change this from 'cors' to 'no-cors'
+          mode: "no-cors",
         }
       );
 
@@ -185,8 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Network response was not ok");
       }
 
-      // Since we're using no-cors, we can't read the response
-      // So we'll assume success if we get here
       alert("Thank you for your inquiry! We will contact you soon.");
 
       // Reset form and close modal
@@ -197,8 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("inquiryModal")
       );
       modal?.hide();
-
-      // Clean up modal
       restoreScrolling();
     } catch (error) {
       console.error("Error:", error);
@@ -208,55 +174,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Remove invalid state on input
+  // ==========================================================================
+  // 6. Form Validation Handlers
+  // ==========================================================================
+
   form.querySelectorAll("input, textarea").forEach((input) => {
     input.addEventListener("input", function () {
       if (this.checkValidity()) {
         this.classList.remove("is-invalid");
       }
+      this.classList.remove("invalid");
     });
   });
 
-  // Remove invalid class on input
-  document
-    .querySelectorAll("#inquiryForm input, #inquiryForm textarea")
-    .forEach((input) => {
-      input.addEventListener("input", function () {
-        this.classList.remove("invalid");
-      });
-    });
-
-  // Add client-side validation for phone number
+  // Phone number validation
   const phoneInput = document.getElementById("phone");
   phoneInput.addEventListener("input", function () {
     const phoneRegex = /^[0-9+\-\s()]{10,15}$/;
-    if (!phoneRegex.test(this.value)) {
-      this.setCustomValidity("Please enter a valid phone number");
-    } else {
-      this.setCustomValidity("");
-    }
+    this.setCustomValidity(
+      phoneRegex.test(this.value) ? "" : "Please enter a valid phone number"
+    );
   });
 
-  // Add client-side validation for email
+  // Email validation
   const emailInput = document.getElementById("email");
   emailInput.addEventListener("input", function () {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(this.value)) {
-      this.setCustomValidity("Please enter a valid email address");
-    } else {
-      this.setCustomValidity("");
-    }
+    this.setCustomValidity(
+      emailRegex.test(this.value) ? "" : "Please enter a valid email address"
+    );
   });
 
-  // Add input validation messages
-  const inputs = document.querySelectorAll("input[required]");
-  inputs.forEach((input) => {
+  // Required field validation
+  document.querySelectorAll("input[required]").forEach((input) => {
     input.addEventListener("input", function () {
-      if (!this.value) {
-        this.setCustomValidity("This field is required");
-      } else {
-        this.setCustomValidity("");
-      }
+      this.setCustomValidity(this.value ? "" : "This field is required");
     });
   });
 });

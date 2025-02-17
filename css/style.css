@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 /* ==========================================================================
    1. CSS Reset and Root Variables
    ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --primary: #ab7442;
   --light: #f5f5f5;
@@ -27,8 +28,9 @@
 }
 
 /* ==========================================================================
-   2. General Styles and Helpers
-   ========================================================================== */
+      2. General Styles and Helpers
+      ========================================================================== */
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -57,9 +59,57 @@
   margin: 0 0 0 auto !important;
 }
 
+/* Custom Button Styles (From Provided Animation) */
+.custom-btn {
+  --hov: 0;
+  display: inline-flex; /*Use inline-flex instead of grid*/
+  grid-gap: 0.5em;
+  grid-template-columns:
+    calc(0.375em + var(--hov) * 1em)
+    1fr; /*Corrected grid-template-columns*/
+  align-items: center;
+  /*place-self: center;*/ /*Remove place-self which is used for grid*/
+  border: none;
+  padding: 0.75em;
+  border-radius: 2em;
+  background: color-mix(
+    in hsl,
+    #b5fe83 calc(var(--hov) * 100%),
+    #fefefe
+  ); /*Corrected color-mix*/
+  color: #0e0a0e;
+  font: 700 1em/1.375 ubuntu, sans-serif; /*Reduced font-size*/
+  transition: 0.3s ease-out;
+  transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
+  transition-property: grid-template-columns, background-color;
+  cursor: pointer;
+  text-decoration: none; /* Added to remove underline from link */
+  margin-left: 0 !important;
+}
+
+.custom-btn::before {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #0e0a0e;
+  color: hsla(0, 0%, 100%, var(--hov));
+  font-weight: 100;
+  text-indent: calc((var(--hov) - 1) * 1em);
+  clip-path: circle(closest-side);
+  transition: inherit;
+  transition-delay: calc(var(--hov) * 0.5 * 0.3s);
+  transition-property: color, text-indent;
+  content: attr(data-ico);
+}
+
+.custom-btn:is(:hover, :focus) {
+  --hov: 1;
+}
+
 /* ==========================================================================
-   3. Navbar Styles
-   ========================================================================== */
+      3. Navbar Styles
+      ========================================================================== */
+
 .navbar .dropdown-toggle::after {
   border: none;
   content: "\f107";
@@ -246,8 +296,9 @@
 }
 
 /* ==========================================================================
-   4. Language Selector Styles
-   ========================================================================== */
+      4. Language Selector Styles
+      ========================================================================== */
+
 .language-selector {
   position: fixed;
   right: 10px;
@@ -333,8 +384,9 @@
 }
 
 /* ==========================================================================
-   5. Search Form Styles
-   ========================================================================== */
+      5. Search Form Styles
+      ========================================================================== */
+
 .search-form {
   position: fixed;
   top: -110%;
@@ -425,9 +477,56 @@
   }
 }
 
+/* Product Search Results */
+.productsearch {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.productsearch-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.productsearch-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-result-link img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.productsearch-info .name {
+  font-weight: 500;
+  color: #333;
+}
+
+.productsearch-info .category {
+  font-size: 0.875rem;
+  color: #666;
+}
+
 /* ==========================================================================
-   6. Header Carousel Styles
-   ========================================================================== */
+      6. Header Carousel Styles
+      ========================================================================== */
+
 .header-carousel .owl-carousel-item {
   position: relative;
   height: 100vh;
@@ -611,8 +710,9 @@
 }
 
 /* ==========================================================================
-   7. About Us Section Styles
-   ========================================================================== */
+      7. About Us Section Styles
+      ========================================================================== */
+
 .section-title h1 {
   position: relative;
   display: inline-block;
@@ -697,8 +797,9 @@
 }
 
 /* ==========================================================================
-   8. Category Section Styles
-   ========================================================================== */
+      8. Category Section Styles
+      ========================================================================== */
+
 .cards {
   display: flex;
   justify-content: center;
@@ -781,8 +882,9 @@
 }
 
 /* ==========================================================================
-   9. Why Choose Us Section Styles
-   ========================================================================== */
+      9. Why Choose Us Section Styles
+      ========================================================================== */
+
 .feature-box {
   background: white;
   padding: 20px;
@@ -825,8 +927,8 @@
 }
 
 /* ==========================================================================
-   10. Fixed Buttons Styling
-   ========================================================================== */
+      10. Fixed Buttons Styling
+      ========================================================================== */
 .fixed-buttons {
   position: fixed;
   right: 30px;
@@ -850,16 +952,6 @@
 }
 
 /* Existing WhatsApp button styles remain */
-.whatsapp-btn {
-  background-color: #25d366;
-  border-color: #25d366;
-}
-
-.whatsapp-btn:hover {
-  background-color: #128c7e;
-  border-color: #128c7e;
-  transform: translateY(-3px);
-}
 
 /* Back-to-top specific styling */
 .back-to-top {
@@ -876,9 +968,246 @@
   font-size: 1.2rem;
 }
 
+/* Fixed Buttons Container */
+.fixed-buttons {
+  position: fixed;
+  right: 15px;
+  bottom: 85px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 99;
+}
+
+/* Back to Top Button */
+.btn-lg-square {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ab7442 !important;
+  color: black !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-lg-square:hover {
+  transform: translateY(-3px);
+  background: var(--dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Inquire Now Button */
+.fixed-inquire-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: linear-gradient(45deg, #32cd32, #228b22);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fixed-inquire-btn:hover {
+  background: linear-gradient(45deg, #228b22, #006400);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-btn {
+  display: none; /* Hidden by default */
+  width: 40px;
+  height: 40px;
+  background: #25d366 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 50% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128c7e !important;
+  border-color: #128c7e !important;
+  transform: translateY(-3px) !important;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  display: none; /* Hidden by default */
+  width: 45px;
+  height: 45px;
+  background: #25d366 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 50% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Mobile/Tablet Responsive */
+@media (max-width: 991px) {
+  .whatsapp-btn {
+    display: flex; /* Show only on mobile/tablet */
+  }
+}
+
+.inquireatag {
+  position: fixed;
+  right: 10px;
+  bottom: 0px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Mobile/Tablet Responsive */
+@media (max-width: 991px) {
+  .fixed-buttons {
+    bottom: 25px; /* Adjusted for mobile */
+  }
+
+  .whatsapp-btn {
+    display: flex; /* Show WhatsApp button */
+  }
+
+  .whatsapp-inquiry {
+    display: flex; /* Show WhatsApp inquiry in product cards */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-lg-square {
+    width: 35px; /* Smaller on mobile */
+    height: 35px;
+  }
+
+  .whatsapp-btn {
+    width: 35px; /* Smaller on mobile */
+    height: 35px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 576px) {
+  .fixed-buttons {
+    right: 10px;
+    bottom: 20px;
+  }
+  .btn-lg-square,
+  .whatsapp-btn {
+    width: 32px; /* Even smaller on very small screens */
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-inquiry {
+    padding: 0px 0px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .fixed-buttons {
+    right: 10px;
+    bottom: 20px;
+  }
+
+  .whatsapp-inquiry {
+    font-size: 0.5rem;
+  }
+}
+/* Product Card Buttons and Labels */
+@media (max-width: 576px) {
+  /* Category Label */
+  .category-label {
+    font-size: 0.6rem !important;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Inquire Now Button */
+  .inquiry-btn {
+    padding: 6px 12px;
+    font-size: 0.65rem !important;
+    width: 100%;
+  }
+
+  /* WhatsApp Inquiry Button */
+  .whatsapp-inquiry {
+    /* padding: 6px 12px; */
+    font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    white-space: nowrap; /* Keeps text on one line */
+  }
+
+  /* Product Title */
+  .product-item h5.mb-3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Button Container Spacing */
+  .text-center.p-4 {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Even smaller screens */
+@media (max-width: 375px) {
+  .whatsapp-inquiry {
+    font-size: 0.5rem !important;
+  }
+
+  .inquiry-btn {
+    font-size: 0.55rem !important;
+  }
+}
+
+/* Hide WhatsApp on Desktop */
+@media (min-width: 992px) {
+  .whatsapp-inquiry {
+    display: none;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .category-filter {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+}
+
 /* ==========================================================================
-   11. Footer Styles
-   ========================================================================== */
+      11. Footer Styles
+      ========================================================================== */
+
 .footer {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
   background-size: cover;
@@ -932,8 +1261,9 @@
 }
 
 /* ==========================================================================
-   12. Attribution Styling
-   ========================================================================== */
+      12. Attribution Styling
+      ========================================================================== */
+
 .attributions {
   font-size: 0.8rem;
   color: #999;
@@ -952,59 +1282,12 @@
 }
 
 /* ==========================================================================
-   13. Animations and Miscellaneous Styles (Keep at the end)
-   ========================================================================== */
+      13. Animations and Miscellaneous Styles (Keep at the end)
+      ========================================================================== */
+
 /* chat */
 
 /* Fade-in effect */
 .wow {
   animation-duration: 1s;
-}
-/* ==========================================================================
-   14. Custom Button Styles (From Provided Animation)
-   ========================================================================== */
-.custom-btn {
-  --hov: 0;
-  display: inline-flex; /*Use inline-flex instead of grid*/
-  grid-gap: 0.5em;
-  grid-template-columns:
-    calc(0.375em + var(--hov) * 1em)
-    1fr; /*Corrected grid-template-columns*/
-  align-items: center;
-  /*place-self: center;*/ /*Remove place-self which is used for grid*/
-  border: none;
-  padding: 0.75em;
-  border-radius: 2em;
-  background: color-mix(
-    in hsl,
-    #b5fe83 calc(var(--hov) * 100%),
-    #fefefe
-  ); /*Corrected color-mix*/
-  color: #0e0a0e;
-  font: 700 1em/1.375 ubuntu, sans-serif; /*Reduced font-size*/
-  transition: 0.3s ease-out;
-  transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
-  transition-property: grid-template-columns, background-color;
-  cursor: pointer;
-  text-decoration: none; /* Added to remove underline from link */
-  margin-left: 0 !important;
-}
-
-.custom-btn::before {
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #0e0a0e;
-  color: hsla(0, 0%, 100%, var(--hov));
-  font-weight: 100;
-  text-indent: calc((var(--hov) - 1) * 1em);
-  clip-path: circle(closest-side);
-  transition: inherit;
-  transition-delay: calc(var(--hov) * 0.5 * 0.3s);
-  transition-property: color, text-indent;
-  content: attr(data-ico);
-}
-
-.custom-btn:is(:hover, :focus) {
-  --hov: 1;
 }

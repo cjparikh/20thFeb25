@@ -119,12 +119,18 @@
       inquiryModal.show();
     }
 
-    // Handle inquiry buttons
-    $(document).on("click", ".inquiry-btn", function (e) {
-      e.stopPropagation();
-      const productName = $(this).data("product-name");
-      openInquiryForm(productName);
-    });
+    // Handle all inquiry triggers (both buttons and links)
+    document
+      .querySelectorAll(".inquiry-trigger, .inquiry-btn")
+      .forEach((trigger) => {
+        trigger.addEventListener("click", (e) => {
+          e.preventDefault();
+          const inquiryModal = new bootstrap.Modal(
+            document.getElementById("inquiryModal")
+          );
+          inquiryModal.show();
+        });
+      });
 
     // Form submission
     $("#inquiryForm").on("submit", function (e) {
