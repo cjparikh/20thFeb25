@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Product categories and their variants
-  const productCategories = {
+  const productCategoriesEn = {
     wheat: [
       {
         id: "wheat-lokmani",
@@ -107,12 +107,264 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   };
 
+  const productCategoriesHi = {
+    गेहूं: [
+      // Gehun - Wheat
+      {
+        id: "gehu-lokmani",
+        name: "पारिख लोकमनी",
+        value: "गेहूं रिसर्च लोकमनी",
+      },
+      {
+        id: "gehu-sharbati",
+        name: "पारिख शरबती",
+        value: "गेहूं रिसर्च पारिख शरबती",
+      },
+      {
+        id: "gehu-sharbati-plus",
+        name: "पारिख शरबती++",
+        value: "गेहूं रिसर्च पारिख शरबती++",
+      },
+      {
+        id: "gehu-nilamani",
+        name: "पारिख नीलमणि",
+        value: "गेहूं रिसर्च पारिख नीलमणि",
+      },
+    ],
+    बाजरा: [
+      // Bajra - Millet
+      { id: "bajra-namoh", name: "पारिख नमोह", value: "बाजरा नमोह" },
+      { id: "bajra-169", name: "पारिख-169", value: "बाजरा पारिख-169" },
+      { id: "bajra-44", name: "सुपर प्रशांत 44++", value: "बाजरा सुपर 44+" },
+      { id: "bajra-552", name: "पारिख 552", value: "बाजरा पारिख 552" },
+    ],
+    मूंग: [
+      // Moong - Green Gram
+      { id: "moong-neel", name: "पारिख नील", value: "मूंग नील" },
+      { id: "moong-neel-plus", name: "पारिख नील++", value: "मूंग नील++" },
+    ],
+    उड़द: [
+      // Urad - Black Gram
+      {
+        id: "urad-shreenath",
+        name: "पारिख श्रीनाथ",
+        value: "उड़द श्रीनाथ",
+      },
+      {
+        id: "urad-superfine",
+        name: "पारिख सुपर फाइन",
+        value: "उड़द सुपर फाइन",
+      },
+    ],
+    तिल: [
+      // Til - Sesame
+      { id: "til-neer", name: "पारिख नीर", value: "तिल नीर" },
+      {
+        id: "til-parth-plus",
+        name: "पारिख पार्थ++",
+        value: "तिल पार्थ++",
+      },
+    ],
+    ज्वार: [
+      // Jwar - Sorghum
+      {
+        id: "jwar-bumpergrass",
+        name: "पारिख बंपरग्रास",
+        value: "ज्वार बंपरग्रास",
+      },
+      {
+        id: "jwar-ssg-788",
+        name: "पारिख एसएसजी-788",
+        value: "ज्वार एसएसजी-788",
+      },
+    ],
+    अरंडी: [
+      // Arandi - Castor
+      { id: "arandi-om", name: "पारिख ओम", value: "अरंडी ओम पारिख" },
+      { id: "arandi-yoddha", name: "पारिख योद्धा", value: "अरंडी योद्धा" },
+      {
+        id: "arandi-super-prashant",
+        name: "सुपर प्रशांत 09",
+        value: "अरंडी सुपर प्रशांत 09",
+      },
+    ],
+    जीरा: [{ id: "jeera-heera", name: "पारिख हीरा", value: "जीरा हीरा" }], // Jeera - Cumin
+    सौंफ: [
+      // Saunf - Fennel
+      { id: "saunf-23", name: "पारिख-23", value: "सौंफ पारिख-23" },
+      {
+        id: "saunf-hariyali",
+        name: "पारिख हरियाली",
+        value: "सौंफ हरियाली",
+      },
+    ],
+    चना: [
+      // Chana - Gram Seeds
+      {
+        id: "chana-gangour",
+        name: "पारिख गंगौर",
+        value: "चना गंगौर",
+      },
+    ],
+    मूंगफली: [
+      // Mungfali - Groundnut
+      { id: "mungfali-sona", name: "पारिख सोना", value: "मूंगफली सोना" },
+      {
+        id: "mungfali-44",
+        name: "सुपर पारिख 44++",
+        value: "मूंगफली सुपर पारिख 44++",
+      },
+    ],
+    ईसबगोल: [
+      // Isabgol
+      { id: "isabgol-gold", name: "पारिख गोल्ड", value: "ईसबगोल पारिख गोल्ड" },
+    ],
+    सरसों: [
+      // Sarson - Mustard
+      { id: "sarson-45", name: "पारिख-45", value: "सरसों पारिख-45" },
+      { id: "sarson-mahi", name: "पारिख माही", value: "सरसों पारिख माही" },
+    ],
+  };
+  const productCategoriesGu = {
+    ઘઉં: [
+      // Wheat
+      {
+        id: "gehu-lokmani",
+        name: "પારીખ લોકમની",
+        value: "ઘઉં રિસર્ચ લોકમની",
+      },
+      {
+        id: "gehu-sharbati",
+        name: "પારીખ શરબતી",
+        value: "ઘઉં રિસર્ચ પારીખ શરબતી",
+      },
+      {
+        id: "gehu-sharbati-plus",
+        name: "પારીખ શરબતી++",
+        value: "ઘઉં રિસર્ચ પારીખ શરબતી++",
+      },
+      {
+        id: "gehu-nilamani",
+        name: "પારીખ નીલમણિ",
+        value: "ઘઉં રિસર્ચ પારીખ નીલમણિ",
+      },
+    ],
+    બાજરી: [
+      // Millet
+      { id: "bajra-namoh", name: "પારીખ નમોઃ", value: "બાજરી નમોઃ" },
+      { id: "bajra-169", name: "પારીખ-169", value: "બાજરી પારીખ-169" },
+      { id: "bajra-44", name: "સુપર પ્રશાંત 44++", value: "બાજરી સુપર 44+" },
+      { id: "bajra-552", name: "પારીખ 552", value: "બાજરી પારીખ 552" },
+    ],
+    મગ: [
+      // Green Gram
+      { id: "moong-neel", name: "પારીખ નીલ", value: "મગ નીલ" },
+      { id: "moong-neel-plus", name: "પારીખ નીલ++", value: "મગ નીલ++" },
+    ],
+    ઉડદ: [
+      // Black Gram
+      {
+        id: "urad-shreenath",
+        name: "પારીખ શ્રીનાથ",
+        value: "ઉડદ શ્રીનાથ",
+      },
+      {
+        id: "urad-superfine",
+        name: "પારીખ સુપર ફાઈન",
+        value: "ઉડદ સુપર ફાઈન",
+      },
+    ],
+    તલ: [
+      // Sesame
+      { id: "til-neer", name: "પારીખ નીર", value: "તલ નીર" },
+      {
+        id: "til-parth-plus",
+        name: "પારીખ પાર્થ++",
+        value: "તલ પાર્થ++",
+      },
+    ],
+    જવાર: [
+      // Sorghum
+      {
+        id: "jwar-bumpergrass",
+        name: "પારીખ બમ્પરગ્રાસ",
+        value: "જવાર બમ્પરગ્રાસ",
+      },
+      {
+        id: "jwar-ssg-788",
+        name: "પારીખ SSG-788",
+        value: "જવાર SSG-788",
+      },
+    ],
+    એરંડા: [
+      // Castor
+      { id: "arandi-om", name: "પારીખ ઓમ", value: "એરંડા ઓમ પારીખ" },
+      { id: "arandi-yoddha", name: "પારીખ યોધ્ધા", value: "એરંડા યોધ્ધા" },
+      {
+        id: "arandi-super-prashant",
+        name: "સુપર પ્રશાંત 09",
+        value: "એરંડા સુપર પ્રશાંત 09",
+      },
+    ],
+    જીરું: [{ id: "jeera-heera", name: "પારીખ હીરા", value: "જીરું હીરા" }], // Cumin
+    સૌફ: [
+      // Fennel
+      { id: "saunf-23", name: "પારીખ-23", value: "સૌફ પારીખ-23" },
+      {
+        id: "saunf-hariyali",
+        name: "પારીખ હરિયાળી",
+        value: "સૌફ હરિયાળી",
+      },
+    ],
+    ચણા: [
+      // Gram Seeds
+      {
+        id: "chana-gangour",
+        name: "પારીખ ગંગૌર",
+        value: "ચણા ગંગૌર",
+      },
+    ],
+    મગફળી: [
+      // Groundnut
+      { id: "mungfali-sona", name: "પારીખ સોના", value: "મગફળી સોના" },
+      {
+        id: "mungfali-44",
+        name: "સુપર પારીખ 44++",
+        value: "મગફળી સુપર પારીખ 44++",
+      },
+    ],
+    ઈસબગુલ: [
+      // Isabgol
+      { id: "isabgol-gold", name: "પારીખ ગોલ્ડ", value: "ઈસબગુલ પારીખ ગોલ્ડ" },
+    ],
+    રાય: [
+      // Mustard (instead of સરસો)
+      { id: "rai-45", name: "પારીખ-45", value: "રાય પારીખ-45" },
+      { id: "rai-mahi", name: "પારીખ માહી", value: "રાય પારીખ માહી" },
+    ],
+  };
+
+  // Select appropriate product categories based on current page
+  function getProductCategories() {
+    const currentPath = window.location.pathname.toLowerCase();
+
+    if (currentPath.includes("hindi")) {
+      return productCategoriesHi;
+    } else if (currentPath.includes("guj")) {
+      return productCategoriesGu;
+    } else {
+      return productCategoriesEn;
+    }
+  }
+
   // Form handling functions
   function initializeForm() {
     const form = document.getElementById("inquiryForm");
     if (!form) return;
 
     // Generate category checkboxes dynamically
+    const productCategories = getProductCategories();
+
     const checkboxGroup = form.querySelector(".checkbox-group");
     Object.entries(productCategories).forEach(([category, products]) => {
       // Create main category
@@ -121,16 +373,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const mainCategory = document.createElement("div");
       mainCategory.className = "checkbox-item main-category";
+
+      // Translate category names based on language
+      const categoryLabel =
+        category.charAt(0).toUpperCase() + category.slice(1);
+
       mainCategory.innerHTML = `
-        <input type="checkbox" 
+         <input type="checkbox" 
                id="${category}" 
                name="categories[]" 
                value="${category}"
                class="category-checkbox"
         />
-        <label for="${category}">${
-        category.charAt(0).toUpperCase() + category.slice(1)
-      }</label>
+        <label for="${category}">${categoryLabel}</label>
       `;
 
       // Create subcategories container
@@ -138,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
       subcategoriesDiv.className = "subcategory-group";
       subcategoriesDiv.setAttribute("data-parent", category);
 
-      // Add subcategories
+      // Add subcategories with translated names
       products.forEach((product) => {
         const subcategoryDiv = document.createElement("div");
         subcategoryDiv.className = "checkbox-item subcategory";
@@ -248,9 +503,9 @@ document.addEventListener("DOMContentLoaded", () => {
       restoreScrolling();
     } catch (error) {
       console.error("Error:", error);
-      alert(
-        "Sorry, there was an error submitting your form. Please try again."
-      );
+      //   alert(
+      //     "Sorry, there was an error submitting your form. Please try again."
+      //   );
     }
   }
 

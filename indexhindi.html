@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Tags -->
     <meta charset="utf-8" />
     <title>पारिख सीड्स</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
     <!-- Favicon -->
     <link href="img/icon.png" rel="icon" type="image/png" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font Preload -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="fonts/your-main-font.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
-    <!-- Icon Font Stylesheet -->
+    <!-- Google Fonts (with NoScript fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
+    <!-- Icon Libraries -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
@@ -29,7 +40,7 @@
       rel="stylesheet"
     />
 
-    <!-- Libraries Stylesheet -->
+    <!--  External Stylesheets (Libraries) -->
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
@@ -39,68 +50,129 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/form.css">
   </head>
-
   <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
+    <body>
+      <!-- ==========================================================================
+         1. Navbar
+         ========================================================================== -->
+      <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <!-- Navbar Brand/Logo -->
+        <a
+          href="indexhindi.html"
+          class="navbar-brand d-flex align-items-center px-4 px-lg-5"
+        >
+          <img
+            id="Logo"
+            class="navbar-logo"
+            alt="Company Logo"
+            src="img/logo.png"
+          />
+        </a>
+  
+        <!-- Navbar Menu Items -->
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+          <a href="indexhindi.html" class="nav-item nav-link active">होम</a>
+          <a href="#anchor-about" class="nav-item nav-link">हमारे बारे में</a>
+          <a href="shophindi.html" class="nav-item nav-link">हमारे उत्पाद</a>
+          <a href="#" class="nav-item nav-link inquiry-trigger">संपर्क</a>
+        </div>
+  
+        <!-- Navbar Search/Menu Icons -->
+        <div class="empty"></div>
+        <div class="icons">
+          <div class="fa fa-search" id="search-btn"></div>
+          <div class="fa fa-bars" id="menu-btn"></div>
+        </div>
+      </nav>
+
+        <!-- ==========================================================================
+       2. Language Selector
+       ========================================================================== -->
+       <div class="language-selector">
+        <a href="indexhindi.html" class="lang-btn">English</a>
+        <a href="indexguj.html" class="lang-btn">ગુજરાતી</a>
+        <a href="indexhindi.html" class="lang-btn">हिंदी</a>
+       
       </div>
-    </div>
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-      <a href="indexguj.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <img id="Logo" 
-             src="img/1finallogonobg.png" 
-             alt="Company Logo" 
-             class="navbar-logo"
-        />
-    </a>
 
-      <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="indexhindi.html" class="nav-item nav-link active">होम</a>
-        <a href="shophindi.html" class="nav-item nav-link">शॉप</a>
-        <a href="service.html" class="nav-item nav-link">हमारे बारे में</a>
-        <a href="#anchor-contact" class="nav-item nav-link">संपर्क करें</a>
+        <!-- ==========================================================================
+       3. Search Form
+       ========================================================================== -->
+       <div class="search-form">
+        <div class="search-form-content">
+          <i class="fa fa-search"></i>
+          <input type="search" id="search-box" placeholder="यहाँ खोजें..." />
+          <i class="fas fa-times" id="close-search"></i>
+        </div>
+        <div id="productsearch" class="productsearch"></div>
       </div>
-      <div class="empty"></div>
-      <div class="icons">
-        <div class="fa fa-search" id="search-btn"></div>
-        <div class="fa fa-bars" id="menu-btn"></div>
-      </div>
-    </nav>
 
-    <!-- Language Selector -->
-    <div class="language-selector">
-      <a href="index.html" class="lang-btn">English</a>
-      <a href="indexguj.html" class="lang-btn">ગુજરાતી</a>
-      <a href="indexhindi.html" class="lang-btn">हिंदी</a>
-    </div>
+        <!-- ==========================================================================
+       4. Carousel
+       ========================================================================== -->
+       <div class="container-fluid p-0 pb-5">
+        <div class="owl-carousel header-carousel position-relative">
+          <!-- Carousel Item 1 -->
+          <div class="owl-carousel-item position-relative">
+            <!-- Image with WebP Source -->
+            <picture>
+              <source srcset="img/hero1.webp" type="image/webp" />
+              <img
+                class="img-fluid"
+                src="img/hero1.jpg"
+                alt="Image of a man plauging with cow"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </picture>
+            <!-- Overlay Content -->
+            <div
+              class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+              style="background: rgba(53, 53, 53, 0.7)"
+            >
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-8 text-center">
+                    <h1
+                      class="display-3 text-white animated slideInDown mb-4 qualityseed"
+                    >
+                      कृषि बीजों में 50+ वर्षों की उत्कृष्टता
+                    </h1>
 
-    <!-- Navbar End -->
-
-    <!-- Search Form -->
-    <div class="search-form">
-      <div class="search-form-content">
-        <i class="fa fa-search"></i>
-        <input type="search" id="search-box" placeholder="यहाँ खोजें..." />
-        <i class="fas fa-times" id="close-search"></i>
-      </div>
-    </div>
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5">
-      <div class="owl-carousel header-carousel position-relative">
+                    <p class="fs-5 fw-medium text-white mb-4 pb-2 trusted">
+                      1968 से किसानों को सशक्त बनाना
+                    </p>
+                    <a
+                      href="shophindi.html"
+                      class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                      >हमारे उत्पाद देखें</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!-- Carousel Item 2 -->
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1FarmerCOWNoCR.jpg" alt="" />
+          <!-- Image with WebP Source -->
+          <picture>
+            <source
+              srcset="img/hero2.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero2.jpg"
+              alt="Image of seeds in hand"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+          <!-- Overlay Content -->
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -111,51 +183,40 @@
                   <h1
                     class="display-3 text-white animated slideInDown mb-4 qualityseed"
                   >
-                    कृषि बीज में उत्कृष्टता के 50 से अधिक वर्षों
-                  </h1>
-
-                  <p class="fs-5 fw-medium text-white mb-4 pb-2 trusted">
-                    1968 से किसानों को सशक्त बनाया
-                  </p>
-                  <a
-                    href=""
-                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                    >हमारे उत्पादों को देखें
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1seedsinhand.jpg" alt="" />
-          <div
-            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-            style="background: rgba(53, 53, 53, 0.7)"
-          >
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-12 col-lg-8 text-center">
-                  <h1
-                    class="display-3 text-white animated slideInDown mb-4 qualityseed"
-                  >
-                    उज्जवल भविष्य के लिए गुणवत्तापूर्ण बीज
+                    उज्जवल भविष्य के लिए उत्तम गुणवत्ता वाले बीज
                   </h1>
                   <p class="fs-5 fw-medium text-white mb-4 pb-2 trusted">
-                    1968 से विश्वसनीय - अग्रणी कृषि उत्कृष्टता
+                    1968 से विश्वसनीय - कृषि उत्कृष्टता में अग्रणी
                   </p>
                   <a
-                    href=""
+                    href="shophindi.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                    >हमारे उत्पादों को देखें</a
+                    >हमारे उत्पाद देखें</a
                   >
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1HarvestNOCR2.jpg" alt="" />
+         <!-- Carousel Item 3 -->
+         <div class="owl-carousel-item position-relative">
+          <!-- Image with WebP Source -->
+          <picture>
+            <source
+              srcset="img/hero3.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero3.jpg"
+              alt="Image of farmer harvesting"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+          <!-- Overlay Content -->
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -169,20 +230,36 @@
                     कृषि में नवाचार और परंपरा
                   </h1>
                   <p class="fs-5 fw-medium text-white mb-4 pb-2 trusted">
-                    1968 से किसानों को सफलता दिलाने में मदद करना
+                    1968 से किसानों को सफलता की खेती करने में मदद करना
                   </p>
                   <a
-                    href=""
+                    href="shophindi.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                    >हमारे उत्पादों को देखें</a
+                    >हमारे उत्पाद देखें</a
                   >
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- Carousel Item 4 -->
         <div class="owl-carousel-item position-relative">
-          <img class="img-fluid" src="img/1lastimage.jpg" alt="" />
+          <!-- Image with WebP Source -->
+          <picture>
+            <source
+              srcset="img/hero4.webp"
+              type="image/webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              class="img-fluid"
+              src="img/hero4.jpg"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+          <!-- Overlay Content -->
           <div
             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style="background: rgba(53, 53, 53, 0.7)"
@@ -193,16 +270,16 @@
                   <h1
                     class="display-3 text-white animated slideInDown mb-4 qualityseed"
                   >
-                    हर बीज के साथ बढ़ती समृद्धि
+                    हर बीज के साथ समृद्धि बढ़ाना
                   </h1>
 
                   <p class="fs-5 fw-medium text-white mb-4 pb-2 trusted">
                     हर किसान के लिए विश्वसनीय, उच्च गुणवत्ता वाले बीज
                   </p>
                   <a
-                    href=""
+                    href="shophindi.html"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                    >हमारे उत्पादों को देखें</a
+                    >हमारे उत्पाद देखें</a
                   >
                 </div>
               </div>
@@ -213,50 +290,178 @@
     </div>
     <!-- Carousel End -->
 
-    <!-- Categories Start -->
-    <div class="container-xxl py-5">
+    <!-- ==========================================================================
+       5. About Us
+       ========================================================================== -->
+    <!-- Section Title -->
+    <div class="section-title text-center" id="anchor-about">
+      <h1 class="display-5 mb-5">हमारे बारे में</h1>
+    </div>
+    <!-- Container Start -->
+    <div class="container-xxl py-3">
       <div class="container">
-        <div class="section-title text-center">
-          <h1 class="display-5 mb-5">हमारी श्रेणियाँ</h1>
-        </div>
-        <div class="row g-4">
-          <!-- Castor -->
-          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item">
-              <div class="overflow-hidden">
-                <!-- <img
-                  class="img-fluid"
-                  src="img/categories/castor.jpg"
-                  alt="Castor Seeds"
-                /> -->
-                <a title="Schnobby, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Seeds_of_Ricinus_communis.jpg"><img width="512" alt="Seeds of Ricinus communis" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Seeds_of_Ricinus_communis.jpg/512px-Seeds_of_Ricinus_communis.jpg?20120410094551"></a>
-              </div>
-              <div
-                class="p-4 text-center border border-5 border-light border-top-0"
-              >
-                <h4 class="mb-3">एरंडी (Castor)</h4>
-                <a class="fw-medium" href=""
-                  >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
-                ></a>
-              </div>
+        <div class="row g-5 align-items-center">
+          <!-- Image Section with Overlay -->
+          <div class="col-lg-6 wow fadeInUp about-img" data-wow-delay="0.1s">
+            <div
+              class="position-relative overflow-hidden h-100"
+              style="min-height: 400px"
+            >
+              <picture>
+                <source
+                  srcset="img/about-us.webp"
+                  type="image/webp"
+                  style="object-fit: cover; filter: brightness(90%)"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="position-absolute w-100 h-100"
+                  src="img/about-us.jpg"
+                  alt="About Us"
+                  style="object-fit: cover; filter: brightness(90%)"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
 
+          <!-- Content Section -->
+          <div
+            class="col-lg-6 wow fadeInUp"
+            data-wow-delay="0.5s"
+            
+          >
+            <h1 class="display-6 mb-4">
+              1968 से कृषि उत्कृष्टता की विरासत
+            </h1>
+            <p class="mb-4">
+              50 वर्षों से अधिक समय से, <strong>पारिख सीड्स</strong> पूरे भारत में किसानों को उच्च गुणवत्ता वाले, अनुसंधान-आधारित बीज वितरित करके कृषि उद्योग में क्रांति ला रहा है।
+            </p>
+            <!-- Key Highlights with Icons -->
+            <div class="row g-4 mb-4">
+              <div class="col-sm-6">
+                <div class="icon-box">
+                  <img
+                    src="img/icon/quality.png"
+                    alt="Quality Assurance"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <h6 class="mb-0">उत्कृष्ट गुणवत्ता वाले बीज</h6>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="icon-box">
+                  <img
+                    src="img/icon/lab2.png"
+                    alt="Research Team"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <h6 class="mb-0">उन्नत अनुसंधान और विकास</h6>
+                </div>
+              </div>
+            </div>
+
+            <p class0="mb-4">
+              हमारे बीज सावधानीपूर्वक <strong>रोग-प्रतिरोधी</strong>, <strong>उच्च उपज देने वाले</strong>, और <strong>जलवायु-अनुकूल</strong> बनने के लिए विकसित किए गए हैं, यह सुनिश्चित करते हुए कि किसान सबसे अच्छी फसल प्राप्त करें।
+            </p>
+
+                        <!-- Additional Highlights -->
+                        <div class="row g-4">
+                          <div class="col-sm-6">
+                            <div class="icon-box">
+                              <img
+                                src="img/icon/50+.png"
+                                alt="Experience"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                              <h6 class="mb-0">50+ वर्षों का विश्वास</h6>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="icon-box">
+                              <img
+                                src="img/icon/india.png"
+                                alt="Presence"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                              <h6 class="mb-0">देश भर के किसानों की सेवा</h6>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <!-- Call to Action Button -->
+                        <div class="mt-4 text-center">
+                          <a href="shophindi.html" class="btn btn-success px-4 py-2"
+                            >हमारे बीज देखें</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    <!-- About Us End -->
+
+        <!-- ==========================================================================
+       6. Categories
+       ========================================================================== -->
+       <div class="container-xxl py-5">
+        <div class="container">
+          <div class="section-title text-center">
+            <h1 class="display-5 mb-5">हमारी श्रेणियाँ</h1>
+          </div>
+          <div class="row g-4">
+            <!-- Castor -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+              <div class="service-item">
+                <div class="overflow-hidden">
+                  <img
+                    class="img-fluid"
+                    src="images/Castor(Arandi)/castor.jpg"
+                    alt="Castor Seeds"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div
+                  class="p-4 text-center border border-5 border-light border-top-0"
+                >
+                  <h4 class="mb-3">अरंडी </h4>
+                  <a
+                    class="fw-medium"
+                    href="shophindi.html#castor"
+                    data-category="castor"
+                    >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            
           <!-- Cumin -->
           <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
             <div class="service-item">
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Cumin(Jeera)/cumincard.jpg"
+                  src="images/Cumin(Jeera)/cumin.jpg"
                   alt="Cumin Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">जीरा (Cumin)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">जीरा </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#cumin"
+                  data-category="cumin"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -269,15 +474,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Fennel(Saunf)/fennelcard.jpg"
+                  src="images/Fennel(Saunf)/fennel.jpg"
                   alt="Fennel Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">सौंफ (Fennel)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">सौंफ</h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#fennel"
+                  data-category="fennel"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -290,15 +500,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/GramSeeds(Chana)/DesiChana.jpeg"
+                  src="images/GramSeeds(Chana)/gramseeds.jpg"
                   alt="Gram Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">चना (Gram)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">चना </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#gramseeds"
+                  data-category="gramseeds"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -309,25 +524,22 @@
           <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
             <div class="service-item">
               <div class="overflow-hidden">
-                <!-- <img
+                <img
                   class="img-fluid"
-                  src="img/categories/greengram.jpg"
+                  src="images/GreenGram(Moong)/greengram.jpg"
                   alt="Green Gram"
-                /> -->
-                <a
-                  title="Sanjay Acharya, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
-                  href="https://commons.wikimedia.org/wiki/File:Green_Mung_Beans.jpg"
-                  ><img
-                    width="1024"
-                    alt="Green Mung Beans"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Green_Mung_Beans.jpg/1024px-Green_Mung_Beans.jpg?20171105082906"
-                /></a>
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">मूंग (Green Gram)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">मूंग </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#moong"
+                  data-category="moong"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -340,15 +552,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Isabgol/isabgolfree.jpeg"
+                  src="images/Isabgol/isabgol.jpg"
                   alt="Isabgol"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">इसबगोल (Isabgol)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">ईसबगोल </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#isabgol"
+                  data-category="isabgol"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -361,15 +578,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Millet(Bajra)/milletcard.jpg"
+                  src="images/Millet(Bajra)/millet.jpg"
                   alt="Millet Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">बाजरा (Millet)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">बाजरा </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#bajra"
+                  data-category="bajra"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -382,15 +604,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Mustard (Sarson)/mustardcard.jpg"
+                  src="images/Mustard (Sarson)/mustard.jpg"
                   alt="Mustard Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">सरसों (Mustard)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">सरसों </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#mustard"
+                  data-category="mustard"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -403,15 +630,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Sesame(Til)/sesamecard.jpg"
+                  src="images/Sesame(Til)/sesame.jpg"
                   alt="Sesame Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">तिल (Sesame)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">तिल </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#sesame"
+                  data-category="sesame"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -424,15 +656,20 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Sorghum(Jowar )/sorghumcard.jpg"
+                  src="images/Sorghum(Jowar )/sorghum.jpg"
                   alt="Sorghum Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">ज्वार (Sorghum)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">ज्वार </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#sorghum"
+                  data-category="sorghum"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -445,39 +682,69 @@
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="images/Wheat(Gehun)/whearcard.jpg"
+                  src="images/Wheat(Gehun)/wheat.jpg"
                   alt="Wheat Seeds"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">गेहूं (Wheat)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">गेहूं </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#wheat"
+                  data-category="wheat"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
             </div>
           </div>
 
-          <!-- Black Gram -->
+          <!-- Groundnut -->
           <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
             <div class="service-item">
               <div class="overflow-hidden">
-                <a
-                  title="Sanjay Acharya, CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons"
-                  href="https://commons.wikimedia.org/wiki/File:Black_gram.jpg"
-                  ><img
-                    width="512"
-                    alt="Black gram"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Black_gram.jpg/512px-Black_gram.jpg?20080221053232"
-                /></a>
+                <img
+                  class="img-fluid"
+                  src="images/BlackGram(UradDal)/blackgram.jpg"
+                  alt="Black gram"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div
                 class="p-4 text-center border border-5 border-light border-top-0"
               >
-                <h4 class="mb-3">उड़द (Black Gram)</h4>
-                <a class="fw-medium" href=""
+                <h4 class="mb-3">उड़द</h4>
+                <a class="fw-medium" href="shophindi.html#urad" data-category="urad"
+                  >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Groundnut -->
+
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="images/Groundnut/groundnut.jpg"
+                  alt="Groundnut"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                class="p-4 text-center border border-5 border-light border-top-0"
+              >
+                <h4 class="mb-3">मूंगफली </h4>
+                <a
+                  class="fw-medium"
+                  href="shophindi.html#groundnut"
+                  data-category="groundnut"
                   >उत्पाद देखें<i class="fa fa-arrow-right ms-2"></i
                 ></a>
               </div>
@@ -486,95 +753,325 @@
         </div>
       </div>
     </div>
+
     <!-- Categories End -->
 
-    <!-- Why Us Section -->
-    <section class="section bg-light whyus">
-      <h2>हमें क्यों चुनें?</h2>
-      <p>बीज उत्पादन और विपणन में पांच दशकों से विश्वसनीय</p>
-      <div class="cards">
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>गुणवत्ता का आश्वासन</h3>
-        </div>
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>व्यापक वितरण नेटवर्क</h3>
-        </div>
-        <div class="card">
-          <i class="fas fa-handshake" style="font-size: 30px; color: blue"></i>
-          <h3>ग्राहक संतुष्टि</h3>
-        </div>
-      </div>
-    </section>
+    <!-- ==========================================================================
+       7. Why Choose Us
+       ========================================================================== -->
+       <section
+       class="container-xxl py-5 bg-light wow fadeIn"
+       data-wow-delay="0.2s"
+     >
+       <div class="container text-center">
+         <h2 class="display-5 mb-4">हमें क्यों चुनें?</h2>
+         <p class="mb-5">
+           बीज उत्पादन और विपणन में पांच दशकों से अधिक का विश्वास, हर किसान के लिए उच्च गुणवत्ता वाले बीज सुनिश्चित करना।
+         </p>
+ 
+         <div class="row g-4">
+           <!-- Quality Assurance -->
+           <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+             <div class="feature-box">
+               <i
+                 class="fas fa-seedling feature-icon"
+                 style="color: #28a745"
+               ></i>
+               <h5>गुणवत्ता आश्वासन</h5>
+               <p>
+                 हमारे बीज उच्च गुणवत्ता और उच्च उपज सुनिश्चित करने के लिए कठोर परीक्षण से गुजरते हैं।
+               </p>
+             </div>
+           </div>
+ 
+           <!-- Research & Development -->
+           <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+             <div class="feature-box">
+               <i class="fas fa-flask feature-icon" style="color: #17a2b8"></i>
+               <h5>अनुसंधान एवं विकास</h5>
+               <p>
+                 बेहतर उत्पादकता के लिए नवीन कृषि समाधान और उच्च उपज वाली किस्में।
+               </p>
+             </div>
+           </div>
+ 
+           <!-- Wide Distribution Network -->
+           <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
+             <div class="feature-box">
+               <i class="fas fa-truck feature-icon" style="color: #fd7e14"></i>
+               <h5>व्यापक वितरण</h5>
+               <p>
+                 हर किसान तक पहुंचने के लिए एक मजबूत आपूर्ति श्रृंखला के साथ पूरे भारत में उपलब्ध।
+               </p>
+             </div>
+           </div>
+ 
+           <!-- Customer Support -->
+           <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+             <div class="feature-box">
+               <i class="fas fa-users feature-icon" style="color: #ffc107"></i>
+               <h5>ग्राहक सहायता</h5>
+               <p>
+                 किसानों को उनकी भूमि के लिए सर्वोत्तम बीज चुनने में मदद करने के लिए समर्पित सहायता।
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
 
-   
-
-    <!-- Footer Start -->
-    <div
-      class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-lg-6 col-md-6" id="anchor-contact">
-            <h4 class="text-light mb-4">पता</h4>
-            <p class="mb-2">
-                <i class="fa fa-map-marker-alt me-3"></i>
-                ३०३, उषादीप कॉम्प्लेक्स, नवरंगपुरा रेलवे क्रॉसिंग के पास, नवरंगपुरा, अहमदाबाद, गुजरात ३८०००९, भारत
-            </p>
-            </p>
-            <p class="mb-2">
-              <i class="fa fa-phone-alt me-3"></i>+012 345 67890
-            </p>
-            <p class="mb-2">
-              <i class="fa fa-envelope me-3"></i>parikhseeds@gmail.com
-            </p>
-            <div class="d-flex pt-2">
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-youtube"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
+     <!-- INQUIRE NOW / CONTACT US -->
+     <div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>हमसे संपर्क करें</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              onclick="restoreScrolling()"
+            ></button>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <h4 class="text-light mb-4">त्वरित लिंक</h4>
-            <a class="btn btn-link" href="">हमारे बारे में</a>
-            <a class="btn btn-link" href="">संपर्क करें</a>
-            <a class="btn btn-link" href="">हमारी सेवाएं</a>
-            <a class="btn btn-link" href="">नियम और शर्तें</a>
-            <a class="btn btn-link" href="">सहायता</a>
+          <div class="modal-body">
+            <form id="inquiryForm">
+              <input type="hidden" id="productName" name="productName" />
+
+              <!-- Name Fields -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label data-required>पहला नाम</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="अपना पहला नाम दर्ज करें"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label data-required>अंतिम नाम</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="अपना अंतिम नाम दर्ज करें"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Company -->
+              <div class="form-field">
+                <label>कंपनी का नाम</label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  placeholder="अपनी कंपनी का नाम दर्ज करें (वैकल्पिक)"
+                />
+              </div>
+
+              <!-- Contact -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label data-required>ईमेल पता</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="अपना ईमेल पता दर्ज करें"
+                    required
+                  />
+                </div>
+
+                <div class="form-field">
+                  <label data-required>फ़ोन नंबर</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="अपना फ़ोन नंबर दर्ज करें"
+                    pattern="^[0-9+\- ]{10,15}$"
+                    title=": कृपया मान्य फ़ोन नंबर दर्ज करें"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="form-field">
+                <label for="streetAddress">सड़क का पता</label>
+                <input type="text" id="streetAddress" name="streetAddress" />
+                <input
+                  type="text"
+                  id="streetAddress2"
+                  name="streetAddress2"
+                  placeholder="अपार्टमेंट, सुइट, आदि (वैकल्पिक)"
+                />
+              </div>
+
+              <div class="form-row three-columns">
+                <div class="form-field">
+                  <label for="city">शहर</label>
+                  <input type="text" id="city" name="city" />
+                </div>
+                <div class="form-field">
+                  <label for="state">राज्य</label>
+                  <input type="text" id="state" name="state" />
+                </div>
+                <div class="form-field">
+                  <label for="postalCode">पिन कोड</label>
+                  <input type="number" id="postalCode" name="postalCode" />
+                </div>
+              </div>
+
+              <!-- Products -->
+              <div class="form-field">
+                <label>रुचि के उत्पाद</label>
+                
+                <!-- All Main Categories First -->
+                <div class="main-categories">
+                  <div class="checkbox-group">
+                    
+                  </div>
+                </div>
+              
+                <!-- All Subcategories Next -->
+                <div class="all-subcategories">
+                  
+                </div>
+              </div>
+
+              <!-- Comments -->
+              <div class="form-field">
+                <label for="comments">अतिरिक्त टिप्पणियाँ</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-submit">
+                <button type="submit">जांच सबमिट करें</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <!-- Footer End -->
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-            &copy; <span id="year"></span> Parikh Seeds, All Rights Reserved.
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Copyright End -->
-
+    <!-- ==========================================================================
+       8. Fixed Buttons (Back to Top, WhatsApp)
+       ========================================================================== -->
+  <!-- Fixed Buttons -->
+  <div class="fixed-buttons">
     <!-- Back to Top -->
-    <a
-      href="#"
-      class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"
-      ><i class="bi bi-arrow-up"></i
-    ></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    
+  <!-- WhatsApp Button -->
+      <a
+        href="https://wa.me/918140001169?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
+        class="btn btn-lg btn-success btn-lg-square whatsapp-btn"
+        target="_blank"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+
+    <div class="inquireatag">
+    <!-- Desktop Inquire Button -->
+    <a href="#" class="fixed-inquire-btn inquiry-trigger">
+      <i class="fas fa-envelope me-2"></i>पूछताछ करें
+    </a>
+    </div>
+
+    <!-- ==========================================================================
+       9. Footer
+       ========================================================================== -->
+       <footer
+       class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
+       data-wow-delay="0.2s"
+     >
+       <div class="container py-5">
+         <div class="row g-5">
+           <!-- Address Section -->
+           <div class="col-lg-6 col-md-6">
+             <h4 class="text-light mb-4">हमारा कार्यालय</h4>
+             <p>
+               <i class="fa fa-map-marker-alt me-3"></i>303, उषदीप कॉम्प्लेक्स,
+               नवरंगपुरा रेलवे क्रॉसिंग के पास, नवरंगपुरा, अहमदाबाद, गुजरात
+               380009, भारत
+             </p>
+             <p><i class="fa fa-phone-alt me-3"></i>+91 8140001169</p>
+             <p><i class="fa fa-phone-alt me-3"></i>+91 079 26444679</p>
+             <p><i class="fa fa-phone-alt me-3"></i>+91 079 48902092</p>
+             <p><i class="fa fa-envelope me-3"></i>parikhseeds@gmail.com</p>
+           </div>
+ 
+           <!-- Quick Links -->
+           <div class="col-lg-6 col-md-6">
+             <h4 class="text-light mb-4">त्वरित लिंक्स</h4>
+             <a class="btn btn-link" href="indexhindi.html">होम</a>
+             <a class="btn btn-link" href="#anchor-about">हमारे बारे में</a>
+             <a class="btn btn-link" href="shophindi.html">हमारे उत्पाद</a>
+             <a class="btn btn-link inquiry-trigger" href="#">हमसे संपर्क करें</a>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- Copyright Section -->
+       <div class="container-fluid text-center py-3 border-top">
+         <p class="mb-0">© 2024 पारिख सीड्स। सर्वाधिकार सुरक्षित।</p>
+       </div>
+     </footer>
+    <!-- Footer End -->
+
+        
+
+    <!-- Attribution Section -->
+    <div class="container-fluid copyright py-4">
+      <div class="attributions">
+        <a
+          href="https://www.freepik.com/free-photo/dark-plate-with-black-bowls-beans-black-background_5974568.htm"
+        >
+          Designed by Freepik
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-photo/raw-bean-grains-displayed-bowls_11943248.htm"
+        >
+          Image by Azerbaijan_stockers
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-photo/mung-beans-isolated-white-background_21070033.htm"
+        >
+          Image by Fabrikasimf
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-vector/shield-with-leaf-check-mark_128610753.htm"
+        >
+          Icon by Juicy_fish
+        </a>
+        |
+        <a href="https://www.freepik.com/icon/anniversary_6198554">
+          Icon by Freepik
+        </a>
+        |
+        <a href="https://www.freepik.com/icon/india-map_17694658">
+          Icon by Freepik
+        </a>
+        |
+        <a
+          href="https://www.freepik.com/free-vector/blue-microscope-design_145116943.htm"
+        >
+          Image by Gstudioimagen
+        </a>
+      </div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -589,5 +1086,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>
