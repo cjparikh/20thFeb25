@@ -462,6 +462,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Disable submit button and show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Processing...";
+
     const formData = new FormData(form);
     const data = {
       productName: formData.get("productName"),
@@ -469,7 +475,10 @@ document.addEventListener("DOMContentLoaded", () => {
       lastName: formData.get("lastName"),
       companyName: formData.get("companyName"),
       email: formData.get("email"),
-      phone: formData.get("phone"),
+      // Prefix phone with a single quote to make Google Sheets treat it as text
+      phone: formData.get("phone")?.startsWith("+")
+        ? "'" + formData.get("phone")
+        : formData.get("phone"),
       streetAddress: formData.get("streetAddress"),
       streetAddress2: formData.get("streetAddress2"),
       city: formData.get("city"),
@@ -479,9 +488,98 @@ document.addEventListener("DOMContentLoaded", () => {
       comments: formData.get("comments"),
     };
 
+    // Replace your existing product list formatting code around line 500 with this:
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwO5LJZYL6vRsMkcodq0CKfJBXBJ2rvZ58X5khQDwj5ee7rFu5cYxvqcxqP7kkyewg/exec",
+      // Prepare data for EmailJS
+      const fullName = `${data.firstName} ${data.lastName}`;
+      const company = data.companyName || "Not provided";
+      const address = `${data.streetAddress}${
+        data.streetAddress2 ? ", " + data.streetAddress2 : ""
+      }, ${data.city}, ${data.state}, ${data.postalCode}`;
+
+      // Get selected main categories
+      const selectedCategories = Array.from(
+        form.querySelectorAll(".category-checkbox:checked")
+      ).map((cb) => cb.value);
+
+      // Get selected products
+      let selectedProducts = Array.from(formData.getAll("products[]"));
+
+      // If a main category is checked but no products from that category are selected,
+      // add the category name to the list
+      selectedCategories.forEach((category) => {
+        const categoryProducts = selectedProducts.filter((product) =>
+          product.toLowerCase().includes(category.toLowerCase())
+        );
+
+        if (categoryProducts.length === 0) {
+          selectedProducts.push(
+            category.charAt(0).toUpperCase() + category.slice(1)
+          );
+        }
+      });
+
+      // Format products list as a numbered list with proper HTML
+      const productsList =
+        "<ol>" +
+        selectedProducts
+          .map((product, index) => `<li>${product}</li>`)
+          .join("") +
+        "</ol>";
+
+      // Current time
+      const now = new Date();
+      const formattedTime = now.toLocaleString();
+
+      // Sanitize phone number for EmailJS - remove ALL special characters
+      const sanitizePhone = (phone) => {
+        if (!phone) return "Not provided";
+
+        // First remove formatting characters for the href
+        const cleanPhone = phone.replace(/[^0-9+]/g, "");
+
+        // Create phone number with tel: link
+        return `<a href="tel:${cleanPhone}" style="color:#2c7744; text-decoration:none;">${phone}</a>`;
+      };
+
+      // Create a VERY simple text-based products list
+      const productsText = selectedProducts
+        .map((product, index) => `${index + 1}. ${product}`)
+        .join(" | ");
+
+      // Simplified template parameters to avoid any potential issues
+      const templateParams = {
+        name: fullName,
+        email: data.email,
+        phone: sanitizePhone(formData.get("phone")),
+        company: company,
+        address: address.replace(/,/g, " "),
+        products: productsText,
+        comments: data.comments || "Not provided",
+        time: formattedTime,
+        count: selectedProducts.length.toString(),
+        subject: `Inquiry from ${fullName}`,
+      };
+
+      try {
+        await emailjs.send(
+          "service_2ssdqjq",
+          "template_h26o36e",
+          templateParams
+        );
+        console.log("Email sent successfully");
+      } catch (emailError) {
+        console.error("EmailJS Error:", emailError);
+
+        // Create a simplified version of the data for Google Sheets only
+        // The email will be sent only through Google Sheets (which works)
+        console.log(
+          "Falling back to Google Sheets only due to EmailJS failure"
+        );
+      }
+      // Also send to Google Script
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyh97MnHrN6R-NH9ai6A5RJg2NcLFutLCV-15mxpcs_d6PE16jc2TvW9Z05oq8qdqU/exec",
         {
           method: "POST",
           body: JSON.stringify(data),
@@ -492,20 +590,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
 
+      // Display success message only ONCE
       alert("Thank you for your inquiry! We will contact you soon.");
+
+      // Reset form
       form.reset();
       form.classList.remove("was-validated");
 
+      // Reset the submit button to its original state
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+
+      // Close modal if open
       const modal = bootstrap.Modal.getInstance(
         document.getElementById("inquiryModal")
       );
-      modal?.hide();
-      restoreScrolling();
+      if (modal) {
+        modal.hide();
+        restoreScrolling();
+      }
     } catch (error) {
       console.error("Error:", error);
-      //   alert(
-      //     "Sorry, there was an error submitting your form. Please try again."
-      //   );
+      alert(
+        "Sorry, there was an error submitting your form. Please try again."
+      );
+
+      // Re-enable submit button on error
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
     }
   }
 
@@ -532,8 +644,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Email validation
     const emailInput = form.querySelector("#email");
+
     emailInput?.addEventListener("input", function () {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
       this.setCustomValidity(
         emailRegex.test(this.value) ? "" : "Please enter a valid email address"
       );
