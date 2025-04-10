@@ -132,25 +132,6 @@
         });
       });
 
-    // Form submission
-    $("#inquiryForm").on("submit", function (e) {
-      e.preventDefault();
-      alert("Thank you for your inquiry. We will contact you soon!");
-
-      const inquiryModal = bootstrap.Modal.getInstance(
-        document.getElementById("inquiryModal")
-      );
-      inquiryModal.hide();
-      this.reset();
-
-      // Clean up modal backdrop
-      $(".modal-backdrop").remove();
-      $("body").removeClass("modal-open").css({
-        overflow: "",
-        paddingRight: "",
-      });
-    });
-
     // DROPDOWN TOGGLE
     document.getElementById("menu-btn").addEventListener("click", function () {
       navbar.classList.toggle("show-menu");
