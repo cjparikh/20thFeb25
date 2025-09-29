@@ -1,0 +1,283 @@
+/* 
+ * Product Carousel Styles
+ * Universal carousel for all seed product pages
+ * Supports 1-4 products per category with responsive design
+ */
+
+/* Enhanced Hero Section with Carousel */
+.product-hero {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.product-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
+}
+
+.product-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Carousel Styles */
+.product-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dynamic width based on number of slides */
+.carousel-slides[data-slides="1"] {
+  width: 100%;
+}
+.carousel-slides[data-slides="2"] {
+  width: 200%;
+}
+.carousel-slides[data-slides="3"] {
+  width: 300%;
+}
+.carousel-slides[data-slides="4"] {
+  width: 400%;
+}
+
+.carousel-slide {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.slide-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 3rem;
+}
+
+.slide-info {
+  flex: 1;
+}
+
+.slide-info h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.slide-info h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #f8f9fa;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.01em;
+  opacity: 0.95;
+}
+
+.slide-info .lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #f8f9fa;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+}
+
+.slide-image {
+  flex: 1;
+  text-align: center;
+}
+
+/* Product Image Container */
+.product-image-container {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.product-image-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-image-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.carousel-indicator.active {
+  background: white;
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+/* Single Product Layout (No Carousel Needed) */
+.carousel-slides[data-slides="1"] .carousel-slide {
+  width: 100%;
+}
+
+.carousel-indicators[data-slides="1"] {
+  display: none; /* Hide indicators for single product */
+}
+
+/* Responsive Carousel Styles */
+@media (max-width: 992px) {
+  .slide-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .slide-info h1 {
+    font-size: 2.5rem;
+  }
+
+  .slide-info h2 {
+    font-size: 1.3rem;
+  }
+
+  .carousel-slide {
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    padding: 3rem 0;
+    min-height: 60vh;
+  }
+
+  .slide-info h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .slide-info h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .slide-info .lead {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-slide {
+    min-height: 50vh;
+  }
+
+  .carousel-indicators {
+    bottom: 1rem;
+  }
+
+  .d-flex.flex-wrap.gap-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slide-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .slide-info h2 {
+    font-size: 1rem;
+  }
+
+  .product-image-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-indicators .carousel-indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Animation for smooth entry */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carousel-slide.active .slide-info {
+  animation: slideIn 0.6s ease-out;
+}
+
+.carousel-slide.active .slide-image {
+  animation: slideIn 0.6s ease-out 0.2s both;
+}
