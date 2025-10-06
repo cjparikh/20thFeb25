@@ -55,14 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
     sorghum: [
       {
-        id: "sorghum-bumpergrass",
-        name: "Parikh BumperGrass",
-        value: "Sorghum BumperGrass",
-      },
-      {
         id: "sorghum-ssg-788",
         name: "Parikh SSG-788",
         value: "Sorghum SSG-788",
+      },
+    ],
+    fodder: [
+      {
+        id: "fodder-bumpergrass",
+        name: "Parikh BumperGrass",
+        value: "Fodder BumperGrass",
       },
     ],
     castor: [
@@ -104,6 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
     mustard: [
       { id: "mustard-45", name: "Parikh-45", value: "Mustard Parik-45" },
       { id: "mustard-mahi", name: "Parikh Mahi", value: "Mustard Parikh Mahi" },
+    ],
+    lucern: [
+      {
+        id: "lucern-kachchhi",
+        name: "Parikh Kachchhi Rajka",
+        value: "Lucern Kachchhi Rajka",
+      },
+      {
+        id: "lucern-teen-salli",
+        name: "Parikh Teen Salli",
+        value: "Lucern Teen Salli",
+      },
     ],
   };
 
@@ -168,14 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
     ज्वार: [
       // Jwar - Sorghum
       {
-        id: "jwar-bumpergrass",
-        name: "पारिख बंपरग्रास",
-        value: "ज्वार बंपरग्रास",
-      },
-      {
         id: "jwar-ssg-788",
         name: "पारिख एसएसजी-788",
         value: "ज्वार एसएसजी-788",
+      },
+    ],
+    चारा: [
+      // Chara - Fodder
+      {
+        id: "chara-bumpergrass",
+        name: "पारिख बंपरग्रास",
+        value: "चारा बंपरग्रास",
       },
     ],
     अरंडी: [
@@ -223,6 +240,19 @@ document.addEventListener("DOMContentLoaded", () => {
       // Sarson - Mustard
       { id: "sarson-45", name: "पारिख-45", value: "सरसों पारिख-45" },
       { id: "sarson-mahi", name: "पारिख माही", value: "सरसों पारिख माही" },
+    ],
+    रजका: [
+      // Rajka - Lucern
+      {
+        id: "rajka-kachchhi",
+        name: "पारिख कच्छी रजका",
+        value: "रजका कच्छी रजका",
+      },
+      {
+        id: "rajka-teen-salli",
+        name: "पारिख तीन साली",
+        value: "रजका तीन साली",
+      },
     ],
   };
   const productCategoriesGu = {
@@ -286,14 +316,17 @@ document.addEventListener("DOMContentLoaded", () => {
     જવાર: [
       // Sorghum
       {
-        id: "jwar-bumpergrass",
-        name: "પારીખ બમ્પરગ્રાસ",
-        value: "જવાર બમ્પરગ્રાસ",
-      },
-      {
         id: "jwar-ssg-788",
         name: "પારીખ SSG-788",
         value: "જવાર SSG-788",
+      },
+    ],
+    ચારો: [
+      // Charo - Fodder
+      {
+        id: "charo-bumpergrass",
+        name: "પારીખ બમ્પરગ્રાસ",
+        value: "ચારો બમ્પરગ્રાસ",
       },
     ],
     એરંડા: [
@@ -341,6 +374,19 @@ document.addEventListener("DOMContentLoaded", () => {
       // Mustard (instead of સરસો)
       { id: "rai-45", name: "પારીખ-45", value: "રાય પારીખ-45" },
       { id: "rai-mahi", name: "પારીખ માહી", value: "રાય પારીખ માહી" },
+    ],
+    રજકા: [
+      // Rajka - Lucern
+      {
+        id: "rajka-kachchhi",
+        name: "પારીખ કચ્છી રજકા",
+        value: "રજકા કચ્છી રજકા",
+      },
+      {
+        id: "rajka-teen-salli",
+        name: "પારીખ ત્રણ સાલી",
+        value: "રજકા ત્રણ સાલી",
+      },
     ],
   };
 

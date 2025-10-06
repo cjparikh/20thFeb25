@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Category Filter Scroll Navigation
   // ==========================================================================
   const filterContainer = document.querySelector(".category-filter");
-  const prevBtn = document.querySelector(".filter-nav-prev");
-  const nextBtn = document.querySelector(".filter-nav-next");
+  const prevBtn = document.querySelector(".scroll-left");
+  const nextBtn = document.querySelector(".scroll-right");
 
   if (filterContainer && prevBtn && nextBtn) {
     const scrollAmount = 200;
