@@ -1,1 +1,1416 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Daily Comparison Report</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css"/>
+
+<style>
+
+body {
+    padding: 20px;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.updated-time {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
 <h1>Daily Comparison Report</h1>
+
+<div class="updated-time">
+Last Updated:
+16 May 2026 01:24 PM
+</div>
+
+<ul class="nav nav-tabs">
+
+    <li class="nav-item">
+        <button class="nav-link active"
+        data-bs-toggle="tab"
+        data-bs-target="#sheet0">
+        Summary
+        </button>
+    </li>
+    
+    <li class="nav-item">
+        <button class="nav-link "
+        data-bs-toggle="tab"
+        data-bs-target="#sheet1">
+        DESC Summary
+        </button>
+    </li>
+    
+    <li class="nav-item">
+        <button class="nav-link "
+        data-bs-toggle="tab"
+        data-bs-target="#sheet2">
+        Default Cash Receipt Voucher
+        </button>
+    </li>
+    
+    <li class="nav-item">
+        <button class="nav-link "
+        data-bs-toggle="tab"
+        data-bs-target="#sheet3">
+        Default Credit Note
+        </button>
+    </li>
+    
+    <li class="nav-item">
+        <button class="nav-link "
+        data-bs-toggle="tab"
+        data-bs-target="#sheet4">
+        Default Sales Invoice
+        </button>
+    </li>
+    
+    <li class="nav-item">
+        <button class="nav-link "
+        data-bs-toggle="tab"
+        data-bs-target="#sheet5">
+        opening balance
+        </button>
+    </li>
+    </ul><div class='tab-content'>
+    <div class="tab-pane fade show active"
+    id="sheet0">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Changes</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>New Rows</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>Deleted Rows</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>Modified Rows</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+    <div class="tab-pane fade "
+    id="sheet1">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>DESC</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default Cash Receipt Voucher</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Default Credit Note</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Default Sales Invoice</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>opening balance</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+    <div class="tab-pane fade "
+    id="sheet2">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>LINK</th>
+      <th>DATE</th>
+      <th>CODE</th>
+      <th>CUSTOMER NAME</th>
+      <th>CUSTOMER GROUP</th>
+      <th>Amt_V2</th>
+      <th>CJP/PSA</th>
+      <th>COMPANY.FY</th>
+      <th>Column Name</th>
+      <th>Old Value</th>
+      <th>New Value</th>
+      <th>Change Type</th>
+      <th>RATE</th>
+      <th>Product</th>
+      <th>Qty_KG</th>
+      <th>DESC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CR100244</td>
+      <td>2025-10-25</td>
+      <td>100001</td>
+      <td>CASH A/C</td>
+      <td>CASH ACCOUNTS</td>
+      <td>-3000.0</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Cash Receipt Voucher</td>
+    </tr>
+    <tr>
+      <td>CR100244</td>
+      <td>2025-10-25</td>
+      <td>100280</td>
+      <td>UMIYA BEEJ BHANDAR (RADHANPUR)(K)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>3000.0</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Cash Receipt Voucher</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+    <div class="tab-pane fade "
+    id="sheet3">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>LINK</th>
+      <th>DATE</th>
+      <th>CODE</th>
+      <th>CUSTOMER NAME</th>
+      <th>CUSTOMER GROUP</th>
+      <th>Amt_V2</th>
+      <th>CJP/PSA</th>
+      <th>COMPANY.FY</th>
+      <th>Column Name</th>
+      <th>Old Value</th>
+      <th>New Value</th>
+      <th>Change Type</th>
+      <th>RATE</th>
+      <th>Product</th>
+      <th>Qty_KG</th>
+      <th>DESC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CN100082</td>
+      <td>2026-03-28</td>
+      <td>100154</td>
+      <td>UMIYA BEEJ BHANDAR (RADHANPUR)(K)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>700.0</td>
+      <td>PRASHANT SEEDS AGENCY</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Credit Note</td>
+    </tr>
+    <tr>
+      <td>CN100082</td>
+      <td>2026-03-28</td>
+      <td>100210</td>
+      <td>RATE DIFF. EXP.</td>
+      <td>EXPENSE (TRADING)</td>
+      <td>-700.0</td>
+      <td>PRASHANT SEEDS AGENCY</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Credit Note</td>
+    </tr>
+    <tr>
+      <td>CN100287</td>
+      <td>2026-03-28</td>
+      <td>100084</td>
+      <td>RATE DIFF. EXP.</td>
+      <td>EXPENSE (TRADING)</td>
+      <td>-9940.0</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Credit Note</td>
+    </tr>
+    <tr>
+      <td>CN100287</td>
+      <td>2026-03-28</td>
+      <td>100280</td>
+      <td>UMIYA BEEJ BHANDAR (RADHANPUR)(K)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>9940.0</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2025-2026</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Default Credit Note</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+    <div class="tab-pane fade "
+    id="sheet4">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>LINK</th>
+      <th>DATE</th>
+      <th>CODE</th>
+      <th>CUSTOMER NAME</th>
+      <th>CUSTOMER GROUP</th>
+      <th>Amt_V2</th>
+      <th>CJP/PSA</th>
+      <th>COMPANY.FY</th>
+      <th>Column Name</th>
+      <th>Old Value</th>
+      <th>New Value</th>
+      <th>Change Type</th>
+      <th>RATE</th>
+      <th>Product</th>
+      <th>Qty_KG</th>
+      <th>DESC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SA100035</td>
+      <td>2026-05-14</td>
+      <td>100010</td>
+      <td>DELIVERY CHARGES (-)</td>
+      <td>INCOME (P/L)</td>
+      <td>-5100.0</td>
+      <td>PRASHANT SEEDS AGENCY</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>52.0</td>
+      <td>S.S.G.-788 (5Kgs.@10Pcs.) 50Kgs.</td>
+      <td>-100.0</td>
+      <td>Default Sales Invoice</td>
+    </tr>
+    <tr>
+      <td>SA100035</td>
+      <td>2026-05-14</td>
+      <td>100030</td>
+      <td>KRUSHI SALES AGENCY (VIJAPUR)(K)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-5100.0</td>
+      <td>PRASHANT SEEDS AGENCY</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>52.0</td>
+      <td>S.S.G.-788 (5Kgs.@10Pcs.) 50Kgs.</td>
+      <td>-100.0</td>
+      <td>Default Sales Invoice</td>
+    </tr>
+    <tr>
+      <td>SA100035</td>
+      <td>2026-05-14</td>
+      <td>100159</td>
+      <td>SALES ACCOUNT (LOCAL)</td>
+      <td>SALES ACCOUNT</td>
+      <td>5100.0</td>
+      <td>PRASHANT SEEDS AGENCY</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>52.0</td>
+      <td>S.S.G.-788 (5Kgs.@10Pcs.) 50Kgs.</td>
+      <td>100.0</td>
+      <td>Default Sales Invoice</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+    <div class="tab-pane fade "
+    id="sheet5">
+
+    <div class="table-container">
+    <table border="1" class="dataframe table table-striped table-bordered datatable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>LINK</th>
+      <th>DATE</th>
+      <th>CODE</th>
+      <th>CUSTOMER NAME</th>
+      <th>CUSTOMER GROUP</th>
+      <th>Amt_V2</th>
+      <th>CJP/PSA</th>
+      <th>COMPANY.FY</th>
+      <th>Column Name</th>
+      <th>Old Value</th>
+      <th>New Value</th>
+      <th>Change Type</th>
+      <th>RATE</th>
+      <th>Product</th>
+      <th>Qty_KG</th>
+      <th>DESC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100001</td>
+      <td>CASH A/C</td>
+      <td>CASH ACCOUNTS</td>
+      <td>-505285.15</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100589</td>
+      <td>PROFIT &amp; LOSS A/C</td>
+      <td>EXPENSE (P/L)</td>
+      <td>-62608.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100934</td>
+      <td>SIYAG AGRO AGENCY (KHINWSAR)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>313.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101043</td>
+      <td>BABA RAMDEV AGRO AGENCY (NOKHA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-74294.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101157</td>
+      <td>BAL HANUMAN AGRO SALES (PHALODI)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-37767.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101158</td>
+      <td>GHALOT KRUSHI SEVA KENDRA (KALAV)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>4005.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101164</td>
+      <td>VEER TEJA KRISHI KENDRA (JAITARAN)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-5879.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101175</td>
+      <td>MAHADEV AGRO SALES (CHAMU)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-27168.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101237</td>
+      <td>JODHPUR AGRO SALES (RAM JI KA GOL)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-479137.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101244</td>
+      <td>MAHADEV KHAD BEEJ BHANDAR (JIVANA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-31449.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101252</td>
+      <td>SHRI RAM AGRO SALES (DHUNDHARA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-15603.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101256</td>
+      <td>SHRI GANESH AGRO AGENCY (OSIAN)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>66195.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101336</td>
+      <td>VEER TEJA KHAD BEEJ BHANDAR (BORUNDA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-12328.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101338</td>
+      <td>MAHADEV KHAD BEEJ BHANDAR(VIYO KA GOLIYA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-113810.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101409</td>
+      <td>VEER TEJAJI KHAD BEEJ BHANDAR (NELIYA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-166500.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101430</td>
+      <td>SHRI NAGAJI KRUSHI AGENCY (PANCHORI)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>8400.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101453</td>
+      <td>KHETESWAR KRISHI KENDRA (TAVAV)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-111202.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101604</td>
+      <td>SHRI KRISHNA AGRO SALES (NUSAR)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-22263.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101871</td>
+      <td>KISHAN KHAD BEEJ BHANDAR (SANCHOR) (KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>800.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101938</td>
+      <td>BALAJI KHAD BEEJ (DHORIMANNA) (KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-584468.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102003</td>
+      <td>KISHAN AGRO CENTER (TAKHATGHADH) (R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>2400.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102026</td>
+      <td>JAI JINDA AGRO AGENCY (MALAWAS FANTA) R</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-90000.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102029</td>
+      <td>SHRI VEER TEJAJI KHAD BEEJ BHANDAR(HIRA KI)R</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-172514.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102030</td>
+      <td>SHIV SAKTI KHAD BEEJ BHANDAR (CHOKHALA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-370857.50</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102074</td>
+      <td>DURGA AKHAD BEEJ BHANDAR (BAGARA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>2600.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102284</td>
+      <td>PAWAN AGRO CENTER(CHITALWANA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-205585.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>NaN</td>
+      <td>New Row</td>
+      <td>New</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100001</td>
+      <td>CASH A/C</td>
+      <td>CASH ACCOUNTS</td>
+      <td>-479285.15</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100589</td>
+      <td>PROFIT &amp; LOSS A/C</td>
+      <td>EXPENSE (P/L)</td>
+      <td>96157.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>100934</td>
+      <td>SIYAG AGRO AGENCY (KHINWSAR)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-3087.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101043</td>
+      <td>BABA RAMDEV AGRO AGENCY (NOKHA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-80294.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101157</td>
+      <td>BAL HANUMAN AGRO SALES (PHALODI)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-39967.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101158</td>
+      <td>GHALOT KRUSHI SEVA KENDRA (KALAV)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>5.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101164</td>
+      <td>VEER TEJA KRISHI KENDRA (JAITARAN)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-6679.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101175</td>
+      <td>MAHADEV AGRO SALES (CHAMU)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-29368.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101237</td>
+      <td>JODHPUR AGRO SALES (RAM JI KA GOL)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-517077.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101244</td>
+      <td>MAHADEV KHAD BEEJ BHANDAR (JIVANA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-34249.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101252</td>
+      <td>SHRI RAM AGRO SALES (DHUNDHARA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-29508.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101256</td>
+      <td>SHRI GANESH AGRO AGENCY (OSIAN)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>60545.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101336</td>
+      <td>VEER TEJA KHAD BEEJ BHANDAR (BORUNDA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-21618.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101338</td>
+      <td>MAHADEV KHAD BEEJ BHANDAR(VIYO KA GOLIYA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-118210.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101409</td>
+      <td>VEER TEJAJI KHAD BEEJ BHANDAR (NELIYA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-174100.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101430</td>
+      <td>SHRI NAGAJI KRUSHI AGENCY (PANCHORI)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>0.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101453</td>
+      <td>KHETESWAR KRISHI KENDRA (TAVAV)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-121202.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101604</td>
+      <td>SHRI KRISHNA AGRO SALES (NUSAR)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-23404.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101871</td>
+      <td>KISHAN KHAD BEEJ BHANDAR (SANCHOR) (KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>0.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>101938</td>
+      <td>BALAJI KHAD BEEJ (DHORIMANNA) (KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-627542.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102003</td>
+      <td>KISHAN AGRO CENTER (TAKHATGHADH) (R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>0.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102026</td>
+      <td>JAI JINDA AGRO AGENCY (MALAWAS FANTA) R</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-95215.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102029</td>
+      <td>SHRI VEER TEJAJI KHAD BEEJ BHANDAR(HIRA KI)R</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-177264.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102030</td>
+      <td>SHIV SAKTI KHAD BEEJ BHANDAR (CHOKHALA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-373457.50</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102074</td>
+      <td>DURGA AKHAD BEEJ BHANDAR (BAGARA)(KS)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>0.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+    <tr>
+      <td>OPENING BALANCE</td>
+      <td>2026-04-01</td>
+      <td>102284</td>
+      <td>PAWAN AGRO CENTER(CHITALWANA)(R)</td>
+      <td>SUNDRY DEBTORS</td>
+      <td>-209185.00</td>
+      <td>CHANDULAL J. PARIKH</td>
+      <td>2026-2027</td>
+      <td>ALL</td>
+      <td>Deleted Row</td>
+      <td>NaN</td>
+      <td>Deleted</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>opening balance</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    </div>
+    
+
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+
+$(document).ready(function () {
+
+    $('.datatable').DataTable({
+        pageLength: 25
+    });
+
+});
+
+</script>
+
+</body>
+</html>
