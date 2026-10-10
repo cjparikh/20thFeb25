@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parikh Seeds | Cost & Selling Price Calculator</title>
+<style>
+:root{--green:#176b45;--green2:#eaf5ee;--ink:#1f2937;--muted:#64748b;--line:#dbe3dc;--bg:#f5f8f5;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.45}
+header{background:var(--green);color:white;padding:25px 16px}
+.head{max-width:1100px;margin:auto}
+header h1{margin:0 0 5px;font-size:clamp(22px,3vw,32px)}
+header p{margin:0;opacity:.92}
+main{max-width:1100px;margin:22px auto;padding:0 14px 36px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px #173b2510}
+h2{font-size:19px;margin:0 0 15px}
+h3{font-size:15px;margin:18px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+.field input,.field select{width:100%;min-width:0;border:1px solid #cbd5cf;border-radius:8px;padding:10px;font-size:15px;background:#fff;color:var(--ink)}
+.field small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.metric{background:var(--green2);border-radius:10px;padding:14px}
+.metric .label{font-size:12px;color:#426253}
+.metric .value{font-size:clamp(18px,2.5vw,25px);font-weight:700;color:var(--green);margin-top:5px;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:14px}
+th{color:var(--muted);font-weight:600}
+td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{color:var(--muted);font-size:12px}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.check{display:flex;gap:8px;align-items:center;font-size:14px}
+.check input{width:16px;height:16px;accent-color:var(--green)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button{border:0;border-radius:9px;padding:11px 16px;font-weight:700;font-size:14px;cursor:pointer}
+.primary{background:var(--green);color:white}.secondary{background:#e8eee9;color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:10px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.summary{grid-template-columns:1fr}.checks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.grid,.two{grid-template-columns:1fr}.card{padding:15px}th,td{font-size:12px;padding:8px 5px}}
+@media print{body{background:#fff}.actions{display:none}.card{box-shadow:none;break-inside:avoid}header{background:#fff;color:#111;padding-left:0}.metric{border:1px solid #ddd}}
+</style>
+</head>
+<body>
+<header><div class="head"><h1>Parikh Seeds</h1><p>Seed Cost & Selling Price Calculator</p></div></header>
+<main>
+<div class="card">
+<h2>1. Initial cost components</h2>
+<p class="note">Enter costs per kg. Default values are examples only. All calculations run locally in your browser.</p>
+<div class="grid">
+<div class="field"><label for="proc">Procurement rate (₹/kg)</label><input id="proc" type="number" min="0" step="0.01" value="200"></div>
+<div class="field"><label for="pouch">Pouch cost (₹/kg)</label><input id="pouch" type="number" min="0" step="0.01" value="8"></div>
+<div class="field"><label for="inbound">Transport from seller (₹/kg)</label><input id="inbound" type="number" min="0" step="0.01" value="2"></div>
+<div class="field"><label for="sdm">SDM medicine (₹/kg)</label><input id="sdm" type="number" min="0" step="0.01" value="1"></div>
+<div class="field"><label for="label">Label and seal (₹/kg)</label><input id="label" type="number" min="0" step="0.01" value="1"></div>
+<div class="field"><label for="handling">Initial loading/unloading (₹/kg)</label><input id="handling" type="number" min="0" step="0.01" value="0.5"></div>
+<div class="field"><label for="packing">Packing labour (₹/kg)</label><input id="packing" type="number" min="0" step="0.01" value="2"></div>
+<div class="field"><label for="storage">Storage cost (₹/kg)</label><input id="storage" type="number" min="0" step="0.01" value="1"></div>
+<div class="field"><label for="interestRate">Annual finance interest (%)</label><input id="interestRate" type="number" min="0" step="0.01" value="12"></div>
+<div class="field"><label for="creditDays">Financed days</label><input id="creditDays" type="number" min="0" step="1" value="60"><small>Interest calculated on procurement rate.</small></div>
+<div class="field"><label for="agent">Agent commission (₹/kg)</label><input id="agent" type="number" min="0" step="0.01" value="3"></div>
+<div class="field"><label for="grading">Grading loss allowance (₹/kg)</label><input id="grading" type="number" min="0" step="0.01" value="2"></div>
+<div class="field"><label for="color">Color cost (₹/kg)</label><input id="color" type="number" min="0" step="0.01" value="1"></div>
+<div class="field"><label for="forFreight">FOR freight to customer (₹/kg)</label><input id="forFreight" type="number" min="0" step="0.01" value="5"></div>
+</div>
+</div>
+<div class="card">
+<h2>2. Sales-return assumptions</h2>
+<div class="grid">
+<div class="field"><label for="returnRate">Expected return rate (%)</label><input id="returnRate" type="number" min="0" max="100" step="0.1" value="20"></div>
+<div class="field"><label for="damageRate">Damaged portion of returns (%)</label><input id="damageRate" type="number" min="0" max="100" step="0.1" value="10"></div>
+<div class="field"><label for="returnFreight">Return transport (₹/kg returned)</label><input id="returnFreight" type="number" min="0" step="0.01" value="3"></div>
+<div class="field"><label for="unpack">Unpacking (₹/kg returned)</label><input id="unpack" type="number" min="0" step="0.01" value="1"></div>
+<div class="field"><label for="repeatHandling">Extra loading/unloading (₹/kg returned)</label><input id="repeatHandling" type="number" min="0" step="0.01" value="0.5"></div>
+<div class="field"><label for="resaleFreight">Extra resale freight (₹/kg good stock)</label><input id="resaleFreight" type="number" min="0" step="0.01" value="0"></div>
+</div>
+<h3>Costs incurred again when good returned seeds are repacked</h3>
+<div class="checks">
+<label class="check"><input id="repeatPouch" type="checkbox" checked> New pouch</label>
+<label class="check"><input id="repeatSdm" type="checkbox" checked> SDM medicine</label>
+<label class="check"><input id="repeatLabel" type="checkbox" checked> Label and seal</label>
+<label class="check"><input id="repeatColor" type="checkbox"> Color treatment</label>
+<label class="check"><input id="repeatPacking" type="checkbox" checked> Packing labour</label>
+</div>
+<p class="note">Tick only expenses that are actually repeated for good returned seeds. Original pouch cost is already included in the initial cost.</p>
+</div>
+<div class="card">
+<h2>3. Returned material valuation</h2>
+<div class="two">
+<div class="field"><label for="materialBasis">Value returned material at</label><select id="materialBasis"><option value="proc">Procurement cost per kg</option><option value="initial">Full initial cost per kg</option></select></div>
+<div class="field"><label for="salvage">Salvage value of damaged seeds (₹/kg damaged)</label><input id="salvage" type="number" min="0" step="0.01" value="0"></div>
+</div>
+<p class="note">Returned material value is displayed separately for visibility. Do not add it again to the total cost: the original material cost is already included in initial cost. Damaged seeds reduce the final saleable quantity.</p>
+</div>
+<div class="card">
+<h2>4. Profit and selling price</h2>
+<div class="two">
+<div class="field"><label for="profitMode">Profit calculation</label><select id="profitMode"><option value="manual">Enter profit manually (₹/saleable kg)</option><option value="margin">Calculate from gross margin (%)</option><option value="markup">Calculate from markup (%)</option></select></div>
+<div class="field" id="profitField"><label for="profit">Desired profit (₹/saleable kg)</label><input id="profit" type="number" min="0" step="0.01" value="30"></div>
+<div class="field" id="percentField" hidden><label for="profitPercent">Target percentage (%)</label><input id="profitPercent" type="number" min="0" max="99.9" step="0.1" value="15"></div>
+</div>
+</div>
+<div class="card">
+<h2>5. Calculation results</h2>
+<div class="summary">
+<div class="metric"><div class="label">Initial total cost per kg</div><div class="value" id="outInitial">₹0.00</div></div>
+<div class="metric"><div class="label">Effective cost per saleable kg</div><div class="value" id="outEffective">₹0.00</div></div>
+<div class="metric"><div class="label">Suggested selling price per kg</div><div class="value" id="outPrice">₹0.00</div></div>
+</div>
+<h3>Material return breakdown — per 100 kg originally dispatched</h3>
+<table>
+<tbody>
+<tr><td>Quantity returned</td><td id="outReturnedQty">—</td></tr>
+<tr><td>Good returned material (recoverable)</td><td id="outGoodQty">—</td></tr>
+<tr><td>Damaged material</td><td id="outDamagedQty">—</td></tr>
+<tr><td>Value of all returned material (valuation basis selected above)</td><td id="outMaterialValue">—</td></tr>
+<tr><td>Value of recoverable good material</td><td id="outGoodValue">—</td></tr>
+<tr><td>Net damaged material loss after salvage</td><td id="outDamageLoss">—</td></tr>
+<tr><td>Additional return handling, transport and repacking expenses</td><td id="outReturnExpenses">—</td></tr>
+<tr><td>Final saleable quantity</td><td id="outSaleableQty">—</td></tr>
+<tr><td>Profit per saleable kg</td><td id="outProfit">—</td></tr>
+<tr><td>Approximate gross margin</td><td id="outMargin">—</td></tr>
+</tbody>
+</table>
+<div class="actions"><button class="primary" id="copyBtn" type="button">Copy results</button><button class="secondary" type="button" onclick="window.print()">Print / Save PDF</button><button class="secondary" type="button" id="resetBtn">Reset example values</button></div>
+<p class="note">Model assumptions: returned good seeds are repacked and resold; damaged seeds have no value except any salvage entered. The formula spreads the initial and additional return costs over the final saleable quantity. Tax, discounts and any unentered expenses are excluded.</p>
+</div>
+<footer>Parikh Seeds · Internal pricing tool</footer>
+</main>
+<script>
+const ids=['proc','pouch','inbound','sdm','label','handling','packing','storage','interestRate','creditDays','agent','grading','color','forFreight','returnRate','damageRate','returnFreight','unpack','repeatHandling','resaleFreight','salvage','profit','profitPercent'];
+const initialValues={proc:200,pouch:8,inbound:2,sdm:1,label:1,handling:.5,packing:2,storage:1,interestRate:12,creditDays:60,agent:3,grading:2,color:1,forFreight:5,returnRate:20,damageRate:10,returnFreight:3,unpack:1,repeatHandling:.5,resaleFreight:0,salvage:0,profit:30,profitPercent:15};
+const $=id=>document.getElementById(id);
+const val=id=>Math.max(0,Number($(id).value)||0);
+const fmt=n=>'₹'+Number(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+function calculate(){
+ const proc=val('proc'), pouch=val('pouch'), inbound=val('inbound'), sdm=val('sdm'), label=val('label'), handling=val('handling'), packing=val('packing'), storage=val('storage'), agent=val('agent'), grading=val('grading'), color=val('color'), forFreight=val('forFreight');
+ const interest=proc*val('interestRate')/100*val('creditDays')/365;
+ const initial=proc+pouch+inbound+sdm+label+handling+packing+storage+interest+agent+grading+color+forFreight;
+ const r=Math.min(1,val('returnRate')/100), d=Math.min(1,val('damageRate')/100);
+ const good=r*(1-d), bad=r*d, saleable=1-bad;
+ const repeat=(($('repeatPouch').checked?pouch:0)+($('repeatSdm').checked?sdm:0)+($('repeatLabel').checked?label:0)+($('repeatColor').checked?color:0)+($('repeatPacking').checked?packing:0));
+ const extra=r*(val('returnFreight')+val('unpack')+val('repeatHandling'))+good*(repeat+val('resaleFreight'));
+ const materialRate=$('materialBasis').value==='proc'?proc:initial;
+ const salvage=val('salvage');
+ const effective=(initial+extra-bad*salvage)/saleable;
+ const mode=$('profitMode').value, pct=Math.min(99.9,val('profitPercent'))/100;
+ let profit=val('profit');
+ if(mode==='margin') profit=effective*pct/(1-pct);
+ if(mode==='markup') profit=effective*pct;
+ const price=effective+profit;
+ const returnedKg=100*r, goodKg=100*good, badKg=100*bad;
+ const materialValue=returnedKg*materialRate, goodValue=goodKg*materialRate, damageLoss=Math.max(0,badKg*(materialRate-salvage));
+ $('outInitial').textContent=fmt(initial);
+ $('outEffective').textContent=fmt(effective);
+ $('outPrice').textContent=fmt(price);
+ $('outReturnedQty').textContent=returnedKg.toFixed(2)+' kg';
+ $('outGoodQty').textContent=goodKg.toFixed(2)+' kg';
+ $('outDamagedQty').textContent=badKg.toFixed(2)+' kg';
+ $('outMaterialValue').textContent=fmt(materialValue);
+ $('outGoodValue').textContent=fmt(goodValue);
+ $('outDamageLoss').textContent=fmt(damageLoss);
+ $('outReturnExpenses').textContent=fmt(extra*100);
+ $('outSaleableQty').textContent=(100*saleable).toFixed(2)+' kg';
+ $('outProfit').textContent=fmt(profit);
+ $('outMargin').textContent=(price>0?(profit/price*100):0).toFixed(2)+'%';
+ $('profitField').hidden=mode!=='manual';
+ $('percentField').hidden=mode==='manual';
+ window.lastResults={initial,effective,price,profit,returnedKg,goodKg,badKg,materialValue,goodValue,damageLoss,returnExpenses:extra*100,saleableQty:100*saleable,margin:price>0?profit/price*100:0,interest};
+}
+ids.forEach(id=>$(id).addEventListener('input',calculate));
+['repeatPouch','repeatSdm','repeatLabel','repeatColor','repeatPacking','materialBasis','profitMode'].forEach(id=>$(id).addEventListener('change',calculate));
+$('copyBtn').addEventListener('click',async()=>{
+ const x=window.lastResults;
+ const text=`PARIKH SEEDS — COST CALCULATION\nInitial total cost/kg: ${fmt(x.initial)}\nEffective cost/saleable kg: ${fmt(x.effective)}\nSuggested selling price/kg: ${fmt(x.price)}\nProfit/kg: ${fmt(x.profit)}\nReturned material: ${x.returnedKg.toFixed(2)} kg (${fmt(x.materialValue)})\nGood returned material: ${x.goodKg.toFixed(2)} kg (${fmt(x.goodValue)})\nDamaged material: ${x.badKg.toFixed(2)} kg; net loss ${fmt(x.damageLoss)}\nAdditional return expenses per 100 kg dispatched: ${fmt(x.returnExpenses)}\nFinal saleable quantity: ${x.saleableQty.toFixed(2)} kg\nGross margin: ${x.margin.toFixed(2)}%`;
+ try{await navigator.clipboard.writeText(text);$('copyBtn').textContent='Copied!';setTimeout(()=>$('copyBtn').textContent='Copy results',1800)}
+ catch(e){window.prompt('Copy these results:',text)}
+});
+$('resetBtn').addEventListener('click',()=>{
+ Object.entries(initialValues).forEach(([id,v])=>$(id).value=v);
+ ['repeatPouch','repeatSdm','repeatLabel','repeatPacking'].forEach(id=>$(id).checked=true);
+ $('repeatColor').checked=false;$('materialBasis').value='proc';$('profitMode').value='manual';calculate();
+});
+calculate();
+</script>
+</body>
+</html>
